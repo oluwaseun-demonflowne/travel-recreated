@@ -7,17 +7,61 @@ import Image from 'next/image'
 import Link from 'next/link'
 import {AiFillStar, AiOutlineHeart} from 'react-icons/ai'
 import {MdLocationOn} from 'react-icons/md'
+import { Skeleton } from './ui/skeleton'
 
 const Explore = () => {
 
-    // const { isLoading, error, data, isFetching } = useQuery({    
-    //     queryKey: ['Hotel'],
-    //     queryFn: () =>
-    //       axios
-    //         .get('/api/category/hotel')
-    //         .then((res) => res.data),
-    // });
-    // console.log(isLoading,data)
+    const { isLoading, error, data, isFetching } = useQuery({    
+        queryKey: ['Hotel'],
+        queryFn: () =>
+          axios
+            .get('/api/category/hotel')
+            .then((res) => res.data),
+    });
+
+    if (isLoading) {
+        return (
+            <div className='flex flex-wrap justify-center gap-4'>
+                <div className='border animate-pulse overflow-hidden rounded-2xl'>
+                    <Skeleton className=" h-60 w-56 " />
+                    <Skeleton className="ml-4 h-4 w-32 mt-4" />
+                    <Skeleton className="ml-4 h-4 w-24 mt-2" />
+                    <div className="flex items-center px-4 mt-6 justify-between">
+                        <Skeleton className=" h-4 w-20" />
+                        <Skeleton className=" h-6 w-16" />
+                    </div>
+                </div>
+                <div className='border animate-pulse overflow-hidden rounded-2xl'>
+                    <Skeleton className=" h-60 w-56 " />
+                    <Skeleton className="ml-4 h-4 w-32 mt-4" />
+                    <Skeleton className="ml-4 h-4 w-24 mt-2" />
+                    <div className="flex items-center px-4 mt-6 justify-between">
+                        <Skeleton className=" h-4 w-20" />
+                        <Skeleton className=" h-6 w-16" />
+                    </div>
+                </div>
+                <div className='border animate-pulse overflow-hidden rounded-2xl'>
+                    <Skeleton className=" h-60 w-56 " />
+                    <Skeleton className="ml-4 h-4 w-32 mt-4" />
+                    <Skeleton className="ml-4 h-4 w-24 mt-2" />
+                    <div className="flex items-center px-4 mt-6 justify-between">
+                        <Skeleton className=" h-4 w-20" />
+                        <Skeleton className=" h-6 w-16" />
+                    </div>
+                </div>
+                <div className='border animate-pulse overflow-hidden rounded-2xl'>
+                    <Skeleton className=" h-60 w-56 " />
+                    <Skeleton className="ml-4 h-4 w-32 mt-4" />
+                    <Skeleton className="ml-4 h-4 w-24 mt-2" />
+                    <div className="flex items-center px-4 mt-6 justify-between">
+                        <Skeleton className=" h-4 w-20" />
+                        <Skeleton className=" h-6 w-16" />
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
   return (
     <div className=' my-10 px-6 md:px-0'>
         <div className='md:flex items-center md:px-28 justify-between'>
@@ -26,11 +70,11 @@ const Explore = () => {
                 <p className='text-xs'>Lets go on an adventure</p>
             </div>
         </div>
-        {/* <div className='flex flex-wrap gap-4 justify-center'>
+        <div className='flex flex-wrap gap-4 justify-center'>
         {data?.map((i:any) => (
             <div key={i.id} className='border relative rounded-2xl overflow-hidden w-56'>
                 <span className='w-9 h-9 bg-white rounded-full opacity-70 flex absolute right-2 top-2 justify-center items-center'><AiOutlineHeart /></span>
-                <Image src={i.image1} className=' w-56 h-60' alt={i.name}/>
+                <Image width={100} height={100} quality={10} src={i.image1} className=' w-56 h-60' alt="images"/>
                 <div className='p-2'>
                     <Link href={`/hotel/${i.hotelName}/${i.id}`}><h1 className='text-lg font-bold'>{i.hotelName}</h1></Link>
                     <p className='flex gap-1 text-xs items-center'><MdLocationOn className='text-blue-800 text-base' />{i.location}</p>
@@ -41,7 +85,7 @@ const Explore = () => {
                 </div>
             </div>
         ))}
-        </div> */}
+        </div>
     </div>
   )
 }

@@ -12,16 +12,16 @@ import TopDeal from "@/components/TopDeal";
 import Testimonies from "@/components/Testimonies";
 
 export default async function Home() {
-  // const queryClient = getQueryClient()
+  const queryClient = getQueryClient()
 
-  //   await queryClient.prefetchQuery({
-  //       queryKey: ['Hotel'],
-  //       queryFn: () =>
-  //             axios
-  //               .get('/api/category/hotel')
-  //               .then((res) => res.data),
-  //   })
-  //   const dehydratedState = dehydrate(queryClient)
+    await queryClient.prefetchQuery({
+        queryKey: ['Hotel'],
+        queryFn: () =>
+              axios
+                .get('/api/category/hotel')
+                .then((res) => res.data),
+    })
+    const dehydratedState = dehydrate(queryClient)
 
 
 
@@ -43,9 +43,9 @@ export default async function Home() {
       <Suggest />
       <Benefit />
       <Work />
-      {/* <HydrationBoundary state={dehydratedState}> */}
+      <HydrationBoundary state={dehydratedState}>
         <Explore />
-      {/* </HydrationBoundary> */}
+      </HydrationBoundary>
       <TopDeal />
       <Testimonies />
     </main>
