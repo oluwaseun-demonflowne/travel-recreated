@@ -2,8 +2,8 @@
 import React, { useState } from 'react'
 import General from './General'
 import Booking from './Booking'
-import Destin from './Destin'
 import Transportation from './Transportation'
+import Destination from './Destin'
 
 type Props = {}
 
@@ -66,18 +66,18 @@ const Question = (props: Props) => {
         <button className={`tracking-wider ${showDestin ? 'bg-blue-700 text-white' : ''}  border text-xs font-medium py-2 px-3 rounded-full`} onClick={showOnlyDestin}>Destination</button>
         <button className={`tracking-wider ${showTransportation ? 'bg-blue-700 text-white' : ''}  border text-xs font-medium py-2 px-3 rounded-full`} onClick={showOnlyTransportation}>Transportation</button>
       </div>
-      <div className='w-100%'>
+      <div className='w-100% mb-10'>
         <div className={`${showGeneral ? 'flex' : 'hidden'}`}>
-          {/* <General /> */}
+          <General />
         </div>
         <div className={`${showBooking ? 'flex' : 'hidden'}`}>
-          {/* <Booking /> */}
+          <Booking />
         </div>
         <div className={`${showDestin ? 'flex' : 'hidden'}`}>
-          {/* <Destin /> */}
+          <Destination />
         </div>
         <div className={`${showTransportation ? 'flex' : 'hidden'}`}>
-          {/* <Transportation /> */}
+          <Transportation />
         </div>
       </div>
     </div>
