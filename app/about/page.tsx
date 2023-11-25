@@ -17,7 +17,7 @@ export default async function Page () {
         </div>
       <div className='flex px-4 md:px-20 gap-12 items-center mt-10 w-full'>
         <div className='flex flex-col md:w-3/6 gap-3'>
-          <h1 className='text-2xl font-black'>About Our Comapny</h1>
+          <h1 className='text-2xl font-black'>About Our Company</h1>
           <p className='text-sm'>
             XYZ Travel Company is a leading name in the travel industry, known for its exceptional services and unparalleled travel experiences. With a legacy spanning over two decades, the company has established itself as a trusted provider of comprehensive travel solutions. XYZ Travel Company takes pride in its team of highly skilled professionals who are passionate about crafting unforgettable journeys for their clients.
           </p>
@@ -47,26 +47,26 @@ export default async function Page () {
       </div>
       <div className='text-center px-4 md:px-20 my-20'>
             <h1 className='font-black mt-2 text-left md:text-center text-xl md:text-2xl'>Why Choose Us</h1>
-            <p className='text-xs mb-3 text-left md:text-center '>These popular destinations have a lot to offer</p>
+            <p className='text-sm mb-3 text-left md:text-center '>These popular destinations have a lot to offer</p>
             <div className='flex md:flex-row flex-col items-center justify-center md:items-start p-2 gap-4'>
                 <div className='text-center w-64 flex gap-1 p-2  flex-col items-center justify-center'>
                     <span className='h-14 '><MdPriceChange className='text-5xl'/></span>
-                    <h1 className='text-sm font-bold'>Best Price Gurantee</h1>
+                    <h1 className='text-base font-bold'>Best Price Gurantee</h1>
                     <p className='text-sm'>We ensure that you get the most competitive prices for your travel bookings</p>
                 </div>
                 <div className='text-center w-64 flex gap-1 p-2  flex-col items-center justify-center'>
                     <span className='h-14 '><BsFilePerson className='text-5xl'/></span>
-                    <h1 className='text-sm font-bold'>Personalised Service</h1>
+                    <h1 className='text-base font-bold'>Personalised Service</h1>
                     <p className='text-sm'>We provide a personalised experience tailored to each customer uniuqe preference</p>
                 </div>
                 <div className='text-center w-64 flex gap-1 p-2 flex-col items-center justify-center'>
                     <span className='h-14 '><TbBrandBooking className='text-5xl'/></span>
-                    <h1 className='text-sm font-bold'>Easy & Quick Booking</h1>
+                    <h1 className='text-base font-bold'>Easy & Quick Booking</h1>
                     <p className='text-sm'>Experience easy booking with our travel agency ensuring efficient process for all customers</p>
                 </div>
                 <div className='text-center w-64 flex gap-1 p-2 flex-col items-center justify-center'>
                     <span className='h-14 '><AiFillCustomerService className='text-5xl'/></span>
-                    <h1 className='text-sm font-bold'>Customer Care 24/7</h1>
+                    <h1 className='text-base font-bold'>Customer Care 24/7</h1>
                     <p className='text-sm'>Enjoy round the clock customer care , providing unparalled support and assitance anywhere, anytime.</p>
                 </div>
             </div>

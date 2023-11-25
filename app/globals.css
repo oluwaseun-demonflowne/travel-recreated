@@ -157,7 +157,8 @@
 } 
 
 
-/* .list:active */
+
+
 
 .side-menu:checked ~ nav{
     max-height: 100%;

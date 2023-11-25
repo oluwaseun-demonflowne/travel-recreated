@@ -62,6 +62,12 @@ const Explore = () => {
         )
     }
 
+    if(error) {
+        return (
+            <p></p>
+        )
+    }
+
   return (
     <div className=' my-10 px-6 md:px-0'>
         <div className='md:flex items-center md:px-28 justify-between'>
