@@ -33,7 +33,7 @@ const Testimonies = () => {
         <div className='flex justify-between py-5 md:py-10'>
             <div>
                 <h1 className='text-xl md:text-3xl font-black'>Our Testimonies</h1>
-                <p className='text-xs'>Let go on an adventure</p>
+                <p className='text-base'>Let go on an adventure</p>
             </div>
             <div className='flex gap-2'>
             </div>
