@@ -1,17 +1,9 @@
 "use client"
 import React, { useState } from 'react'
 import Stay from './ChooseFeed/Stay'
-import Flight from './ChooseFeed/Flight'
-import Cars from './ChooseFeed/Cars'
 import { BiSearch } from 'react-icons/bi'
-import { useRouter } from 'next/navigation'
-import Hotel from './ChooseFeed/Hotel'
-import { CiLocationOn } from 'react-icons/ci'
-import { FaRegCalendarAlt } from 'react-icons/fa'
-import { GoPerson } from 'react-icons/go'
 
 const Location = () => {
-  const Router = useRouter()
   const [stay, setStay] = useState(true)
   const [flight, setFlight] = useState(false)
   const [cars, setCars] = useState(false)
@@ -46,23 +38,22 @@ const Location = () => {
     setStay(false)
   }
 
-  const [searchLocation, setSearchLocation] = useState('')
+  // const [searchLocation, setSearchLocation] = useState('')
 
-  const goToLocation = () => {
-    if(stay){
-        console.log(searchLocation)
-        Router.push(`/location/search?location=${searchLocation}`)   
-    }
-    if(flight){
-        Router.push('/flight')   
-    }
-    if(cars){
-        Router.push('/car/q')   
-    }
-    if(hotel){
-        Router.push('/hotel/q')   
-    }
-  }
+  // const goToLocation = () => {
+  //   if(stay){
+  //       Router.push(`/location/search?location=${searchLocation}`)   
+  //   }
+  //   if(flight){
+  //       Router.push('/flight')   
+  //   }
+  //   if(cars){
+  //       Router.push('/car/q')   
+  //   }
+  //   if(hotel){
+  //       Router.push('/hotel/q')   
+  //   }
+  // }
 
 
   return (
@@ -79,7 +70,7 @@ const Location = () => {
             {/* <Flight /> */}
             {/* <Cars /> */}
             {/* <Hotel /> */}
-            <button onClick={goToLocation} className='pointer bg-blue-600 mr-5 w-10 h-10 text-lg flex justify-center items-center rounded-full p-2'><BiSearch className='text-white' /></button>
+            <button  className='pointer bg-blue-600 mr-5 w-10 h-10 text-lg flex justify-center items-center rounded-full p-2'><BiSearch className='text-white' /></button>
             </div>
         </div>    
     </div>

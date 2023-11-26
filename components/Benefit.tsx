@@ -15,7 +15,7 @@ const Benefit = () => {
                     </div>
                     <div className='flex w-[90%] flex-col items-start gap-1'>
                         <h1 className='text-base md:text-lg font-bold'>Expertise and Convenience</h1>
-                        <p className='text-xs  font-medium text-slate-600'>Travel agencies have expertise in the travel industry and can offer valuable advice and recommendations to travelers.</p>
+                        <p className='text-sm  font-medium text-slate-600'>Travel agencies have expertise in the travel industry and can offer valuable advice and recommendations to travelers.</p>
                     </div>
                 </div>
                 <div className='flex w-full gap-4 md:gap-2 items-start'>
@@ -24,7 +24,7 @@ const Benefit = () => {
                     </div>
                     <div className='flex w-[90%] flex-col items-start gap-1'>
                         <h1 className='text-base md:text-lg font-bold'>Exclusive Deals and Discounts</h1>
-                        <p className='text-xs font-medium text-slate-600'>Travel agencies often have partnerships with airlines, hotels, and other travel providers.</p>
+                        <p className='text-sm font-medium text-slate-600'>Travel agencies often have partnerships with airlines, hotels, and other travel providers.</p>
                     </div>
                 </div>
                 <div className='flex w-full gap-4 md:gap-2 items-start'>
@@ -33,7 +33,7 @@ const Benefit = () => {
                     </div>
                     <div className='flex w-[90%] flex-col items-start gap-1'>
                         <h1 className='text-base md:text-lg font-bold'>Peace of Mind and Support</h1>
-                        <p className='text-xs font-medium text-slate-600'>Travel agencies can provide peace of mind by offering support and assistance in these situations.</p>
+                        <p className='text-sm font-medium text-slate-600'>Travel agencies can provide peace of mind by offering support and assistance in these situations.</p>
                     </div>
                 </div>
             </div>

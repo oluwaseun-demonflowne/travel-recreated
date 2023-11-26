@@ -1,24 +1,26 @@
 "use client"
-import React from 'react'
+import React, { useState } from 'react'
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '../ui/collapsible'
 import { CaretSortIcon } from "@radix-ui/react-icons"
 import { Button } from '../ui/button'
 
 
-const General = () => {
+const FrequentlyAsked = () => {
   const [isOpen, setIsOpen] = React.useState(false)
   const [isSecondOpen, setIsSecondOpen] = React.useState(false)
   const [isThirdOpen, setIsThirdOpen] = React.useState(false)
   return (
-    <div className='flex gap-5 flex-col'>
+    <div className='mb-10'>
+        <h1 className='md:text-base text-sm my-6 font-black'>Frequently asked questions</h1>
+        <div className='flex gap-5 flex-col'>
         <Collapsible
           open={isOpen}
           onOpenChange={setIsOpen}
           className="w-[350px] border rounded-md space-y-2"
         >
           <div className="flex items-center justify-between space-x-4 px-4">
-            <h4 className="text-sm font-semibold">
-            Can I rent a car without a credit card?
+            <h4 className="text-sm py-2 font-semibold">
+            What is the check-in/check-out time of most hotels?
             </h4>
             <CollapsibleTrigger asChild>
               <Button variant="ghost" size="sm">
@@ -39,8 +41,8 @@ const General = () => {
           className="w-[350px] border rounded-md space-y-2"
         >
           <div className="flex items-center justify-between space-x-4 px-4">
-            <h4 className="text-sm font-semibold">
-            Can i return the car?
+            <h4 className="text-sm py-2 font-semibold">
+            Can i cancel or modify my hotel reservation?
             </h4>
             <CollapsibleTrigger asChild>
               <Button variant="ghost" size="sm">
@@ -61,8 +63,8 @@ const General = () => {
           className="w-[350px] border rounded-md space-y-2"
         >
           <div className="flex items-center justify-between space-x-4 px-4">
-            <h4 className="text-sm font-semibold">
-            What happens if i need to checkout early?
+            <h4 className="text-sm py-2 font-semibold">
+            What happens if i need to check out early?
             </h4>
             <CollapsibleTrigger asChild>
               <Button variant="ghost" size="sm">
@@ -77,8 +79,13 @@ const General = () => {
             </div>
           </CollapsibleContent>
         </Collapsible>
+
+
+        </div>
     </div>
   )
 }
 
-export default General
+export default FrequentlyAsked
+
+

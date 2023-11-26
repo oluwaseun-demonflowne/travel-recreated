@@ -1,12 +1,8 @@
-import Image from 'next/image'
 import React from 'react'
-import { AiFillCustomerService, AiOutlineLeft, AiOutlineRight } from 'react-icons/ai'
-import { BsFilePerson, BsFillChatFill, BsFillTelephoneForwardFill } from 'react-icons/bs'
-import { FaBuilding } from 'react-icons/fa'
-import { MdEmail, MdPriceChange } from 'react-icons/md'
+import { AiFillCustomerService} from 'react-icons/ai'
+import { BsFilePerson } from 'react-icons/bs'
+import { MdPriceChange } from 'react-icons/md'
 import { TbBrandBooking } from 'react-icons/tb'
-// import LocationExplore from '@components/locationDetails/LocationExplore'
-// import Testimonies from '@components/Testimonies'
 
 export default async function Page () {
   return (

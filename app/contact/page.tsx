@@ -5,7 +5,6 @@ import { FaBuilding } from 'react-icons/fa'
 import { MdEmail, MdPriceChange } from 'react-icons/md'
 import { TbBrandBooking } from 'react-icons/tb'
 
-type Props = {}
 
 export default async function Page() {
   return (

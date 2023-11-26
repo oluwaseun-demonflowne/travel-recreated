@@ -5,9 +5,9 @@ import Booking from './Booking'
 import Transportation from './Transportation'
 import Destination from './Destin'
 
-type Props = {}
 
-const Question = (props: Props) => {
+
+const Question = () => {
   const [showGeneral, setShowGeneral] = useState(true)
   const [showBooking, setShowBooking] = useState(false)
   const [showDestin, setShowDestin] = useState(false)

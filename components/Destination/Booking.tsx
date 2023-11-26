@@ -4,9 +4,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '../ui/colla
 import { CaretSortIcon } from "@radix-ui/react-icons"
 import { Button } from '../ui/button'
 
-type Props = {}
-
-const Booking = (props: Props) => {
+const Booking = () => {
   const [isOpen, setIsOpen] = React.useState(false)
   const [isSecondOpen, setIsSecondOpen] = React.useState(false)
   const [isThirdOpen, setIsThirdOpen] = React.useState(false)
