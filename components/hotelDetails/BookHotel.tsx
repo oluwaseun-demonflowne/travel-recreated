@@ -9,13 +9,6 @@ import { useQuery } from '@tanstack/react-query'
 import { useParams } from 'next/navigation'
 
 const BookHotel = () => { 
-    const [state, setState] = useState([
-        {
-          startDate: new Date(),
-          endDate: null,
-          key: 'selection'
-        }
-      ]);
   const [hotelInfo , getHotelInfo] = useState([])
   const [value, onChange] = useState(new Date())
   const [alreadyInCart , setAlreadyInCart] = useState(false)
@@ -62,7 +55,7 @@ const router = useParams()
                 </div>
             </div>
             <div className='flex flex-col gap-2 border-b-2  p-2 items-center'>
-                <div className="flex justify-between">
+                <div className="flex w-full items-center justify-between">
                     <p className='text-base  font-bold'>Date</p>
                     <IoIosArrowDown />
                 </div>
@@ -72,7 +65,7 @@ const router = useParams()
             <div className='flex border-b-2 justify-between p-2 items-center'>
                 <div>
                     <p className='text-base font-bold'>Room No</p>
-                    <input type='text' className='outline-none border p-4 rounded-md text-xs' placeholder='No of night'/>
+                    <input type='text' className='outline-none border p-4 rounded-md text-sm' placeholder='No of night'/>
                 </div>
             </div>
             <div className='flex border-b-2 justify-between p-2 items-center'>
@@ -80,7 +73,7 @@ const router = useParams()
                     <h1 className='text-base font-bold'>Adults</h1>
                     <p className='text-sm'>Over 18+</p>
                 </div>
-                <div className='flex gap-1 items-center'>
+                <div className='flex gap-3 items-center'>
                     <span onClick={() => setPassenger(prev => prev - 1)} className={`${passenger == 0 ? 'pointer-events-none opacity-50' : ''} w-7 h-7 flex border cursor-pointer rounded-full justify-center items-center`}><AiOutlineMinus /></span>
                     <p className='font-bold'>{passenger}</p>
                     <span onClick={() => setPassenger(prev => prev + 1)} className={`${passenger == 4 ? 'pointer-events-none opacity-50' : ''} w-7 h-7 flex border cursor-pointer rounded-full justify-center items-center`}><AiOutlinePlus /></span>
@@ -91,10 +84,10 @@ const router = useParams()
                     <h1 className='text-base font-bold'>Children</h1>
                     <p className='text-sm'>Under 12</p>
                 </div>
-                <div className='flex gap-1 items-center'>
-                    <span onClick={() => setChildren(prev => prev - 1)} className={`${children == 0 ? 'pointer-events-none opacity-50' : ''}w-7 h-7 flex border cursor-pointer rounded-full justify-center items-center`}><AiOutlineMinus /></span>
+                <div className='flex gap-3 items-center'>
+                    <span onClick={() => setChildren(prev => prev - 1)} className={`${children == 0 ? 'pointer-events-none opacity-50' : ''} w-7 h-7 flex border cursor-pointer rounded-full justify-center items-center`}><AiOutlineMinus /></span>
                     <p className='font-bold'>{children}</p>
-                    <span onClick={() => setChildren(prev => prev + 1)} className={`${children == 4 ? 'pointer-events-none opacity-50' : ''}w-7 h-7 flex border cursor-pointer rounded-full justify-center items-center`}><AiOutlinePlus /></span>
+                    <span onClick={() => setChildren(prev => prev + 1)} className={`${children == 4 ? 'pointer-events-none opacity-50' : ''} w-7 h-7 flex border cursor-pointer rounded-full justify-center items-center`}><AiOutlinePlus /></span>
                 </div>
             </div>
             <div className='p-2'>
