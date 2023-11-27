@@ -32,10 +32,10 @@ export default async function Home() {
           <h1 className='md:text-5xl text-2xl font-bold'>Discover A Beautiful</h1>
           <h1 className='md:text-5xl text-2xl font-bold'>Place With Us</h1>
           <div className='flex flex-col  text-center'>
-          <p className='text-xs'>Explore nature paradise in the world, let us find the best</p>
-          <p className='text-xs'>destination in world with us</p>
+          <p className='text-base'>Explore nature paradise in the world, let us find the best</p>
+          <p className='text-base'>destination in world with us</p>
           </div>
-          <button className='bg-[rgb(251,215,93)] text-black rounded-full py-2 px-3 text-xs font-bold'>Explore Now</button>
+          <button className='bg-[rgb(251,215,93)] text-black rounded-full py-2 px-3 text-base font-bold'>Explore Now</button>
       </section>
       <div className="flex z-40 justify-center mt-[-50px]">
         <Location />
