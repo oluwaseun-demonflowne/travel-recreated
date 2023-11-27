@@ -12,6 +12,7 @@ import { CiMoneyCheck1 } from 'react-icons/ci'
 import axios from 'axios'
 import { useParams } from 'next/navigation'
 import { useQuery } from '@tanstack/react-query'
+import { Skeleton } from '../ui/skeleton'
 
 const HotelOverview = () => {
     const {id} = useParams()
@@ -22,6 +23,31 @@ const HotelOverview = () => {
           .get(`/api/category/hotel/${id}`)
           .then((res) => res.data),
     });
+
+    if(isLoading) {
+        return (
+            <div className='flex  flex-col animate-pulse gap-5 py-3 '>
+                <Skeleton className='w-44 h-6' />
+                <hr></hr>
+                <div className='flex gap-2 flex-wrap'>
+                    <div className='flex gap-2 items-center'>
+                        <Skeleton className='w-10 h-10 rounded-full' />
+                        <Skeleton className='w-40 h-4' />
+                    </div>
+                    <div className='flex gap-2 items-center'>
+                        <Skeleton className='w-10 h-10 rounded-full' />
+                        <Skeleton className='w-40 h-4' />
+                    </div>
+                    <div className='flex gap-2 items-center'>
+                        <Skeleton className='w-10 h-10 rounded-full' />
+                        <Skeleton className='w-40 h-4' />
+                    </div>
+                </div>
+                <Skeleton className='w-40 h-4' />
+            <Skeleton className='w-[100%] h-72' />
+        </div>
+        )
+    }
 
   return (
     <div className=''>

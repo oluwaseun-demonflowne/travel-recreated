@@ -48,13 +48,15 @@ const Explore = () => {
 
     if (isLoading) {
         return (
-            <div className='border animate-pulse overflow-hidden rounded-2xl'>
-                <Skeleton className=" h-60 w-56 " />
-                <Skeleton className="ml-4 h-4 w-32 mt-4" />
-                <Skeleton className="ml-4 h-4 w-24 mt-2" />
-                <div className="flex items-center px-4 mt-6 justify-between">
-                    <Skeleton className=" h-4 w-20" />
-                    <Skeleton className=" h-6 w-16" />
+            <div className=' my-10 px-6 md:px-20'>
+                <div className='border animate-pulse w-56 overflow-hidden rounded-2xl'>
+                    <Skeleton className=" h-60 w-56 " />
+                    <Skeleton className="ml-4 h-4 w-32 mt-4" />
+                    <Skeleton className="ml-4 h-4 w-24 mt-2" />
+                    <div className="flex items-center px-4 mt-6 justify-between">
+                        <Skeleton className=" h-4 w-20" />
+                        <Skeleton className=" h-6 w-16" />
+                    </div>
                 </div>
             </div>
         )
@@ -67,11 +69,11 @@ const Explore = () => {
     }
 
   return (
-    <div className=' my-10 px-6 md:px-28'>
+    <div className=' my-10 px-6 md:px-20'>
         <div className='md:flex items-center  justify-between'>
             <div className='md:flex my-4 md:my-7 flex-col gap-1 text-black'>
                 <h1 className='text-2xl font-black'>Explore to destination</h1>
-                <p className='text-xs'>Lets go on an adventure</p>
+                <p className='text-sm'>Lets go on an adventure</p>
             </div>
         </div>
         <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
