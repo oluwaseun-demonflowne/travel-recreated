@@ -165,9 +165,9 @@
   max-height: 0;
 } */
 
-.nav:has(.ok:active) {
+/* .nav:has(.ok:active) {
   max-height: 0;
-}
+} */
 
 .side-menu:checked ~ nav{
     max-height: 400px;
