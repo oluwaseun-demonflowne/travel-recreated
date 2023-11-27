@@ -15,6 +15,8 @@ import { useQuery } from '@tanstack/react-query'
 import { Skeleton } from '../ui/skeleton'
 
 const HotelOverview = () => {
+    
+
     const {id} = useParams()
     const { isLoading, error, data, isFetching } = useQuery({    
       queryKey: ['HotelSearchId'],
@@ -23,6 +25,9 @@ const HotelOverview = () => {
           .get(`/api/category/hotel/${id}`)
           .then((res) => res.data),
     });
+
+
+
 
     if(isLoading) {
         return (
