@@ -1,4 +1,4 @@
-import CarResult from '@/components/SearchResults/CarResult/CarResult'
+// import CarResult from '@/components/SearchResults/CarResult/CarResult'
 import Location from '@/components/Location'
 import React from 'react'
 
@@ -9,7 +9,7 @@ export default async function Page () {
             <Location />
         </div>
         <div className='mt-10'>
-            <CarResult />
+            {/* <CarResult /> */}
         </div>
     </section>
   )

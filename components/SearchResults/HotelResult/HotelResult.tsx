@@ -1,14 +1,13 @@
+"use client"
 import React from 'react'
 import Deals from './Deals'
-import Cars from './Cars'
+import Hotels from './Hotels'
 
-type Props = {}
-
-const HotelResult = (props: Props) => {
+const HotelResult = () => {
   return (
         <div className='flex md:flex-row flex-col justify-center gap-5'>
           <Deals />
-          <Cars />
+          <Hotels />
         </div>
   )
 }
