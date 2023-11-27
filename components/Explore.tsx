@@ -10,6 +10,7 @@ import { Skeleton } from './ui/skeleton'
 import { Hotels } from '..'
 import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu'
 import 'react-horizontal-scrolling-menu/dist/styles.css'
+import { shimmer, toBase64 } from './Shimmer'
 
 
 const LeftArrow = () => {
@@ -47,42 +48,13 @@ const Explore = () => {
 
     if (isLoading) {
         return (
-            <div className='flex flex-wrap justify-center gap-4'>
-                <div className='border animate-pulse overflow-hidden rounded-2xl'>
-                    <Skeleton className=" h-60 w-56 " />
-                    <Skeleton className="ml-4 h-4 w-32 mt-4" />
-                    <Skeleton className="ml-4 h-4 w-24 mt-2" />
-                    <div className="flex items-center px-4 mt-6 justify-between">
-                        <Skeleton className=" h-4 w-20" />
-                        <Skeleton className=" h-6 w-16" />
-                    </div>
-                </div>
-                <div className='border animate-pulse overflow-hidden rounded-2xl'>
-                    <Skeleton className=" h-60 w-56 " />
-                    <Skeleton className="ml-4 h-4 w-32 mt-4" />
-                    <Skeleton className="ml-4 h-4 w-24 mt-2" />
-                    <div className="flex items-center px-4 mt-6 justify-between">
-                        <Skeleton className=" h-4 w-20" />
-                        <Skeleton className=" h-6 w-16" />
-                    </div>
-                </div>
-                <div className='border animate-pulse overflow-hidden rounded-2xl'>
-                    <Skeleton className=" h-60 w-56 " />
-                    <Skeleton className="ml-4 h-4 w-32 mt-4" />
-                    <Skeleton className="ml-4 h-4 w-24 mt-2" />
-                    <div className="flex items-center px-4 mt-6 justify-between">
-                        <Skeleton className=" h-4 w-20" />
-                        <Skeleton className=" h-6 w-16" />
-                    </div>
-                </div>
-                <div className='border animate-pulse overflow-hidden rounded-2xl'>
-                    <Skeleton className=" h-60 w-56 " />
-                    <Skeleton className="ml-4 h-4 w-32 mt-4" />
-                    <Skeleton className="ml-4 h-4 w-24 mt-2" />
-                    <div className="flex items-center px-4 mt-6 justify-between">
-                        <Skeleton className=" h-4 w-20" />
-                        <Skeleton className=" h-6 w-16" />
-                    </div>
+            <div className='border animate-pulse overflow-hidden rounded-2xl'>
+                <Skeleton className=" h-60 w-56 " />
+                <Skeleton className="ml-4 h-4 w-32 mt-4" />
+                <Skeleton className="ml-4 h-4 w-24 mt-2" />
+                <div className="flex items-center px-4 mt-6 justify-between">
+                    <Skeleton className=" h-4 w-20" />
+                    <Skeleton className=" h-6 w-16" />
                 </div>
             </div>
         )
@@ -106,7 +78,7 @@ const Explore = () => {
             {data?.map((i:Hotels,index:number) => (
                 <div key={i.id} className={`border relative ${index !== 0 ? 'ml-6' : ''} rounded-2xl overflow-hidden w-56`}>
                     <span className='w-9 h-9 bg-white rounded-full opacity-70 flex absolute right-2 top-2 justify-center items-center'><AiOutlineHeart /></span>
-                    <Image width={100} height={100} quality={10} src={i.image1} className=' w-56 h-60' alt="images"/>
+                    <Image placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`} width={100} height={100} quality={10} src={i.image1} className=' w-56 h-60' alt="images"/>
                     <div className='p-2'>
                         <Link href={`/hotel/${i.id}`}><h1 className='text-lg font-bold'>{i.hotelName}</h1></Link>
                         <p className='flex gap-1 text-base items-center'><MdLocationOn className='text-blue-800 text-base' />{i.location}</p>

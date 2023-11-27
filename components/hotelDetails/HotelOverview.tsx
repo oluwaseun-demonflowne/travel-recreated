@@ -64,7 +64,7 @@ const HotelOverview = () => {
                 {data?.wifiIncluded && data?.wifiIncluded.length && <p className='flex base text-slate-400 font-semibold gap-1 items-center'><BsFillRouterFill />Free wifi 24/7</p>}
                 {data?.bathroom && data?.bathroom.length && <p className='flex text-base text-slate-400 font-semibold gap-1 items-center'><LiaToiletPaperSolid />Free clean bathroom</p>}
                 {data?.smoking && data?.smoking.length && <p className='flex text-base text-slate-400 font-semibold gap-1 items-center'><GoVerified />Smoking Zone</p>}
-                {data?.breakfastIncluded && data?.breakfastIncluded.length && <p className='flex text-xs text-slate-400 font-semibold gap-1 items-center'><MdFastfood />Breakfast included</p>}
+                {data?.breakfastIncluded && data?.breakfastIncluded.length && <p className='flex text-base text-slate-400 font-semibold gap-1 items-center'><MdFastfood />Breakfast included</p>}
                 {data?.gym && data?.gym.length && <p className='flex text-base text-slate-400 font-semibold gap-1 items-center'><BsLightningCharge />Gym facility</p>}
                 {data?.atm && data?.atm.length && <p className='flex text-base text-slate-400 font-semibold gap-1 items-center'><CiMoneyCheck1 />ATM</p>}
                 {data?.pool && data?.pool.length && <p className='flex text-base text-slate-400 font-semibold gap-1 items-center'><TbSwimming />Swimming pool</p>}

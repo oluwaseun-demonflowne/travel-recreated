@@ -2,7 +2,7 @@
 import React from 'react'
 import HotelOverview from './HotelOverview'
 import BookHotel from './BookHotel'
-import ExploreHotel from './ExploreHotel'
+import Explore from '../Explore'
 
 type Props = {}
 
@@ -13,7 +13,7 @@ const HotelAbout = (props: Props) => {
         <HotelOverview />
         <BookHotel />
       </div>
-      {/* <ExploreHotel /> */}
+      <Explore />
     </div>
   )
 }

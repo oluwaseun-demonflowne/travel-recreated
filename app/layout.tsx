@@ -9,7 +9,7 @@ import Footer from "./(shared)/Footer"
 import { Oxanium } from 'next/font/google'
 
 export const metadata: Metadata = {
-  title: 'Travel Application',
+  title: 'Travel with us. Explore',
   description: 'a website to book hotel,car',
 }
 
