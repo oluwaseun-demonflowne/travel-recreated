@@ -111,7 +111,8 @@
 }
 .nav{
   max-height: 0;
-  transition: max-height .1s ease-out;
+  overflow: hidden;
+  transition: max-height .2s ease-out;
 }
 
 .logo{
@@ -156,12 +157,20 @@
   display: none;
 } 
 
+.side-menu:not(:checked) ~ nav{
 
+}
 
+/* .ok:hover .nav {
+  max-height: 0;
+} */
 
+.nav:has(.ok:active) {
+  max-height: 0;
+}
 
 .side-menu:checked ~ nav{
-    max-height: 100%;
+    max-height: 400px;
 }
 .side-menu:checked ~ .hamb .hamb-line {
     background: transparent;

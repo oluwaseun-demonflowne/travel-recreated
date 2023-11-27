@@ -28,8 +28,8 @@ export default async function NavBar () {
         <label className="hamb" htmlFor="side-menu"><span className="hamb-line"></span></label>
         <nav className="shadow-lg nav pl-5 mt-5 flex flex-col">
           <ul className='flex  flex-col gap-8 text-sm font-semibold'>        
-              <Link href='/'><li className='cursor-pointer'>Home</li></Link>
-              <Link href='/destination'><li className='cursor-pointer list'>Destination</li></Link>
+              <Link href='/'><li className='ok cursor-pointer'>Home</li></Link>
+              <Link href='/destination'><li className='ok cursor-pointer list'>Destination</li></Link>
               <Link href='/profile'><li className=' cursor-pointer'>Profile</li></Link>
               <Link href='/about'><li className='cursor-pointer'>About</li></Link>
               <Link href='/contact'><li className='cursor-pointer'>Contact</li></Link>
