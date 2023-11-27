@@ -54,8 +54,8 @@ const LocationTitle = () => {
     <div className='mt-10 px-4 md:px-40'>   
         <div className='flex md:flex-row gap-5 md:gap-0 flex-col md:items-center w-full'>
             <div className='flex flex-col gap-3 md:gap-1 md:w-3/6'>
-                <p className='text-sm md:text-base font-black'>{data?.shortHotelDescription}</p>
-                <div className='flex flex-wrap items-center text-slate-600 text-xs gap-2'>
+                <p className='text-lg font-black'>{data?.shortHotelDescription}</p>
+                <div className='flex flex-wrap items-center text-slate-600 text-base gap-2'>
                     <p>Hosted By</p>
                     <p className='font-black'>{data?.personWhoCreatedPost?.firstName}{' '}{data?.personWhoCreatedPost?.lastName}</p>
                     <p className='flex items-center gap-1'><GoPerson />{data?.guestNo}{' '}guests</p>

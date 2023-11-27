@@ -61,23 +61,23 @@ const Review = () => {
     return (
         <div>
             <div className='flex md:flex-row flex-col md:items-center gap-3'>
-                <div className='border w-32 h-32 rounded-2xl grad flex flex-col gap-1 items-start p-2 justify-center'>
+                <div className='border w-36 h-36 rounded-2xl grad flex flex-col gap-1 items-start p-2 justify-center'>
                     <p className='text-4xl font-black'>4.8</p>
                     <div className='flex gap-1'>
-                        <AiFillStar className='text-xs text-yellow-400' />
-                        <AiFillStar className='text-xs text-yellow-400' />
-                        <AiFillStar className='text-xs text-yellow-400' />
-                        <AiFillStar className='text-xs text-yellow-400' />
-                        <AiFillStar className='text-xs  text-slate-500' />
+                        <AiFillStar className='text-lg text-yellow-400' />
+                        <AiFillStar className='text-lg text-yellow-400' />
+                        <AiFillStar className='text-lg text-yellow-400' />
+                        <AiFillStar className='text-lg text-yellow-400' />
+                        <AiFillStar className='text-lg  text-slate-500' />
                     </div>
-                    <p className='text-[10px] text-slate-600'>based on 532 reviews</p>
+                    <p className='text-sm text-slate-600'>based on 532 reviews</p>
                 </div>
                 <div className='flex flex-col   gap-2'>
                     <h1 className='font-black'>Add a review</h1>
-                    <p className='text-xs'>Be the first to review <span className='font-semibold'>name of this place</span></p>
+                    <p className='text-sm'>Be the first to review <span className='font-semibold'>name of this place</span></p>
                     <form  className='w-80 md:w-96 relative'>
-                        <input type='text' onChange={(e) => setReview(e.target.value)} value={review} required className='text-xs outline-none px-4 border rounded-full w-80 md:w-96 h-12' placeholder='Share your thoughts..'/>
-                        <button type='submit' className={`text-white absolute rounded-full border right-2 top-1 w-28 font-medium bg-blue-800 h-10 px-2 text-xs`}>Post Now</button> 
+                        <input type='text' onChange={(e) => setReview(e.target.value)} value={review} required className='text-sm outline-none px-4 border rounded-full w-80 md:w-96 h-12' placeholder='Share your thoughts..'/>
+                        <button type='submit' className={`text-white absolute rounded-full border right-2 top-1 w-28 font-medium bg-blue-800 h-10 px-2 text-sm`}>Post Now</button> 
                     </form>
                 </div>
             </div>

@@ -34,7 +34,7 @@ const HotelOverview = () => {
                     <BsPersonWorkspace />
                 </span>
                 <div>
-                    <h1 className='text-sm font-bold'>Dedicated workspace</h1>
+                    <h1 className='text-base font-bold'>Dedicated workspace</h1>
                 </div>
             </div>}
             {data?.checkIn && data?.checkIn.length && <div className='flex items-center gap-1'>
@@ -42,7 +42,7 @@ const HotelOverview = () => {
                     <MdOutlineGroups2 />
                 </span>
                 <div>
-                    <h1 className='text-sm font-bold'>Self check-in</h1>
+                    <h1 className='text-base font-bold'>Self check-in</h1>
                 </div>
             </div>}
             {data?.freeCancel && data?.freeCancel.length && <div className='flex items-center gap-1'>
@@ -50,25 +50,25 @@ const HotelOverview = () => {
                     <LiaTimesSolid />
                 </span>
                 <div>
-                    <h1 className='text-sm font-bold'>Free Cancellation</h1>
+                    <h1 className='text-base font-bold'>Free Cancellation</h1>
                 </div>
             </div>}
         </div>
         <div className='my-5 flex  gap-2 flex-col'>
-            <h1 className='font-bold'>Overview:</h1>
-            <p className='text-xs'>{data?.overview}</p>
+            <h1 className='text-lg font-bold'>Overview:</h1>
+            <p className='text-base'>{data?.overview}</p>
         </div>
         <div className='flex flex-col gap-4'>
             <h1 className='font-black'>Hotel Amenities</h1>
             <div className='flex gap-y-3 flex-wrap gap-x-6 md:gapy-y-4'>
-                {data?.wifiIncluded && data?.wifiIncluded.length && <p className='flex text-xs text-slate-400 font-semibold gap-1 items-center'><BsFillRouterFill />Free wifi 24/7</p>}
-                {data?.bathroom && data?.bathroom.length && <p className='flex text-xs text-slate-400 font-semibold gap-1 items-center'><LiaToiletPaperSolid />Free clean bathroom</p>}
-                {data?.smoking && data?.smoking.length && <p className='flex text-xs text-slate-400 font-semibold gap-1 items-center'><GoVerified />Smoking Zone</p>}
+                {data?.wifiIncluded && data?.wifiIncluded.length && <p className='flex base text-slate-400 font-semibold gap-1 items-center'><BsFillRouterFill />Free wifi 24/7</p>}
+                {data?.bathroom && data?.bathroom.length && <p className='flex text-base text-slate-400 font-semibold gap-1 items-center'><LiaToiletPaperSolid />Free clean bathroom</p>}
+                {data?.smoking && data?.smoking.length && <p className='flex text-base text-slate-400 font-semibold gap-1 items-center'><GoVerified />Smoking Zone</p>}
                 {data?.breakfastIncluded && data?.breakfastIncluded.length && <p className='flex text-xs text-slate-400 font-semibold gap-1 items-center'><MdFastfood />Breakfast included</p>}
-                {data?.gym && data?.gym.length && <p className='flex text-xs text-slate-400 font-semibold gap-1 items-center'><BsLightningCharge />Gym facility</p>}
-                {data?.atm && data?.atm.length && <p className='flex text-xs text-slate-400 font-semibold gap-1 items-center'><CiMoneyCheck1 />ATM</p>}
-                {data?.pool && data?.pool.length && <p className='flex text-xs text-slate-400 font-semibold gap-1 items-center'><TbSwimming />Swimming pool</p>}
-                {data?.city && data?.city.length && <p className='flex text-xs text-slate-400 font-semibold gap-1 items-center'><LiaCitySolid />Nearby city</p>}
+                {data?.gym && data?.gym.length && <p className='flex text-base text-slate-400 font-semibold gap-1 items-center'><BsLightningCharge />Gym facility</p>}
+                {data?.atm && data?.atm.length && <p className='flex text-base text-slate-400 font-semibold gap-1 items-center'><CiMoneyCheck1 />ATM</p>}
+                {data?.pool && data?.pool.length && <p className='flex text-base text-slate-400 font-semibold gap-1 items-center'><TbSwimming />Swimming pool</p>}
+                {data?.city && data?.city.length && <p className='flex text-base text-slate-400 font-semibold gap-1 items-center'><LiaCitySolid />Nearby city</p>}
             </div>
         </div>
         <div className='mt-10 mb-16'>
@@ -76,7 +76,7 @@ const HotelOverview = () => {
                 <span className='flex text-2xl md:text-4xl justify-center items-center w-10 h-10 md:w-14 md:h-14 bg-white rounded-full'><AiFillStar className=' text-blue-800' /></span>
                 <div className='flex flex-col justify-around'>
                     <h1 className='text-sm md:text-lg font-black'>This property is in high demand!</h1>
-                    <p className='text-xs'>15 travelers have booked today.</p>
+                    <p className='text-sm'>15 travelers have booked today.</p>
                 </div>
             </div>
         </div>
