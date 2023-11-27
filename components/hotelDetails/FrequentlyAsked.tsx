@@ -19,7 +19,7 @@ const FrequentlyAsked = () => {
           className="w-[350px] border rounded-md space-y-2"
         >
           <div className="flex items-center justify-between space-x-4 px-4">
-            <h4 className="text-sm py-2 font-semibold">
+            <h4 className="text-base py-2 font-semibold">
             What is the check-in/check-out time of most hotels?
             </h4>
             <CollapsibleTrigger asChild>
@@ -41,7 +41,7 @@ const FrequentlyAsked = () => {
           className="w-[350px] border rounded-md space-y-2"
         >
           <div className="flex items-center justify-between space-x-4 px-4">
-            <h4 className="text-sm py-2 font-semibold">
+            <h4 className="text-base py-2 font-semibold">
             Can i cancel or modify my hotel reservation?
             </h4>
             <CollapsibleTrigger asChild>
@@ -63,7 +63,7 @@ const FrequentlyAsked = () => {
           className="w-[350px] border rounded-md space-y-2"
         >
           <div className="flex items-center justify-between space-x-4 px-4">
-            <h4 className="text-sm py-2 font-semibold">
+            <h4 className="text-base py-2 font-semibold">
             What happens if i need to check out early?
             </h4>
             <CollapsibleTrigger asChild>
