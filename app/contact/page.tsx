@@ -1,17 +1,20 @@
+import Image from 'next/image'
 import React from 'react'
 import { AiFillCustomerService } from 'react-icons/ai'
 import { BsFilePerson, BsFillChatFill, BsFillTelephoneForwardFill } from 'react-icons/bs'
 import { FaBuilding } from 'react-icons/fa'
 import { MdEmail, MdPriceChange } from 'react-icons/md'
 import { TbBrandBooking } from 'react-icons/tb'
+import QuestionPic from "@/public/contact.jpg"
 
 
 export default async function Page() {
   return (
     <section>
-        <div className='text-center flex flex-col gap-1 justify-center mb-16 h-48 bg-slate-500 mt-5'>
-            <h1 className='text-2xl font-bold'>Contact Us</h1>
-            <p className='text-xs font-bold'>Frequently asked questions</p>
+        <div className='text-center flex flex-col relative gap-1 justify-center mb-16 h-48  mt-5'>
+            <Image unoptimized={true} placeholder='blur' quality={100} src={QuestionPic} alt='a picture of a large hotel'  width={100} height={100} priority className='w-[100%]  z-[-1] h-48 brightness-50 absolute top-0' />
+            <h1 className='text-2xl text-white font-bold'>Contact Us</h1>
+            <p className='text-xl text-white font-bold'>Frequently asked questions</p>
         </div>
         <div className='text-center px-4 flex flex-col items-center'>
             <p className='text-sm font-semi-bold'>Get In Touch</p>

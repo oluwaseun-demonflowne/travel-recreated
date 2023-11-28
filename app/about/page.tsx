@@ -1,15 +1,18 @@
+import Image from 'next/image'
 import React from 'react'
 import { AiFillCustomerService} from 'react-icons/ai'
 import { BsFilePerson } from 'react-icons/bs'
 import { MdPriceChange } from 'react-icons/md'
 import { TbBrandBooking } from 'react-icons/tb'
+import QuestionPic from "@/public/about.jpg"
 
 export default async function Page () {
   return (
     <section className=''>
-      <div className='text-center flex flex-col gap-1 justify-center mb-16 h-48 bg-slate-500 md:mt-5'>
-            <h1 className='text-2xl font-bold'>Looking for joy?</h1>
-            <p className='text-xs font-bold'>Your trusted trip companion</p>
+      <div className='text-center flex relative flex-col gap-1 justify-center mb-16 h-48 md:mt-5'>
+            <Image unoptimized={true} placeholder='blur' quality={100} src={QuestionPic} alt='a picture of a large hotel' width={100} height={100} priority className='w-[100%] brightness-50 absolute top-0 z-[-1] h-48' />
+            <h1 className='text-2xl text-white font-bold'>Looking for joy?</h1>
+            <p className='text-xl text-white font-bold'>Your trusted trip companion</p>
         </div>
       <div className='flex px-4 md:px-20 gap-12 items-center mt-10 w-full'>
         <div className='flex flex-col md:w-3/6 gap-3'>

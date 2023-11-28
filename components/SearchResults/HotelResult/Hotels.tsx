@@ -27,7 +27,7 @@ const Hotels = () => {
 
   if(isLoading) {
     return (
-      <div className='px-4 md:px-0 '>
+      <div className='px-4 flex flex-col items-center gap-4 md:px-0 '>
         <div className="flex mb-8 justify-between">
           <Skeleton className='w-48 h-4' />  
           <Skeleton className='w-20 h-6 rounded-full' />  
@@ -47,11 +47,7 @@ const Hotels = () => {
             </div>
           </div>
         </div>
-        <div className="flex mb-8 justify-between">
-          <Skeleton className='w-48 h-4' />  
-          <Skeleton className='w-20 h-6 rounded-full' />  
-        </div>  
-        <div className=' animate-pulse flex md:flex-row items-center flex-col w-[300px] md:w-[800px] rounded-2xl border p-2 md:p-2 gap-3 md:gap-10'>
+        <div className=' animate-pulse mx-5 flex md:flex-row items-center flex-col w-[300px] md:w-[800px] rounded-2xl border p-2 md:p-2 gap-3 md:gap-10'>
           <Skeleton className='w-48 h-48 rounded-md' />  
           <div className='flex w-full  p-2 md:p-0 flex-col gap-2 md:gap-5  md:w-[550px] justify-between'>
             <Skeleton className='w-20 h-6 rounded-full' />
@@ -66,11 +62,7 @@ const Hotels = () => {
             </div>
           </div>
         </div>
-        <div className="flex mb-8 justify-between">
-          <Skeleton className='w-48 h-4' />  
-          <Skeleton className='w-20 h-6 rounded-full' />  
-        </div>  
-        <div className=' animate-pulse flex md:flex-row items-center flex-col w-[300px] md:w-[800px] rounded-2xl border p-2 md:p-2 gap-3 md:gap-10'>
+        <div className=' animate-pulse mx-5 flex md:flex-row items-center flex-col w-[300px] md:w-[800px] rounded-2xl border p-2 md:p-2 gap-3 md:gap-10'>
           <Skeleton className='w-48 h-48 rounded-md' />  
           <div className='flex w-full  p-2 md:p-0 flex-col gap-2 md:gap-5  md:w-[550px] justify-between'>
             <Skeleton className='w-20 h-6 rounded-full' />
@@ -85,11 +77,7 @@ const Hotels = () => {
             </div>
           </div>
         </div>
-        <div className="flex mb-8 justify-between">
-          <Skeleton className='w-48 h-4' />  
-          <Skeleton className='w-20 h-6 rounded-full' />  
-        </div>  
-        <div className=' animate-pulse flex md:flex-row items-center flex-col w-[300px] md:w-[800px] rounded-2xl border p-2 md:p-2 gap-3 md:gap-10'>
+        <div className=' animate-pulse mx-5 flex md:flex-row items-center flex-col w-[300px] md:w-[800px] rounded-2xl border p-2 md:p-2 gap-3 md:gap-10'>
           <Skeleton className='w-48 h-48 rounded-md' />  
           <div className='flex w-full  p-2 md:p-0 flex-col gap-2 md:gap-5  md:w-[550px] justify-between'>
             <Skeleton className='w-20 h-6 rounded-full' />

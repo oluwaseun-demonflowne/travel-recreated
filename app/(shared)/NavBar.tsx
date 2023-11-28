@@ -12,7 +12,7 @@ export default async function NavBar () {
         </div>
         <ul className='flex gap-8 text-sm font-semibold'>        
             <Link href='/'><li className='cursor-pointer'>Home</li></Link>
-            <Link href='/destination'><li className='cursor-pointer'>Destination</li></Link>
+            <Link href='/faq'><li className='cursor-pointer'>Faq</li></Link>
             <Link href='/profile'><li className='cursor-pointer'>Profile</li></Link>
             <Link href='/about'><li className='cursor-pointer'>About</li></Link>
             <Link href='/contact'><li className='cursor-pointer'>Contact</li></Link>
@@ -29,7 +29,7 @@ export default async function NavBar () {
         <nav className="shadow-lg nav pl-5 mt-5 flex flex-col">
           <ul className='flex  flex-col gap-8 text-sm font-semibold'>        
               <Link href='/'><li className='ok cursor-pointer'>Home</li></Link>
-              <Link href='/destination'><li className='ok cursor-pointer list'>Destination</li></Link>
+              <Link href='/faq'><li className='ok cursor-pointer list'>faq</li></Link>
               <Link href='/profile'><li className=' cursor-pointer'>Profile</li></Link>
               <Link href='/about'><li className='cursor-pointer'>About</li></Link>
               <Link href='/contact'><li className='cursor-pointer'>Contact</li></Link>
