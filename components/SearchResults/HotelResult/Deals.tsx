@@ -3,8 +3,8 @@ import React from 'react';
 const Deals = () => {
   return (
     <div className='px-4 md:px-0'>
-      <div className='text-xs font-medium flex p-2 flex-col gap-2'>
-        <h1 className='text-sm font-black'>Deals</h1>
+      <div className='text-sm font-medium flex p-2 flex-col gap-2'>
+        <h1 className='text-base font-black'>Deals</h1>
         <div className='flex flex-col gap-1'>
           <div className='flex justify-between gap-5 items-center'>
             <div className='flex gap-1 items-center'>
@@ -26,9 +26,9 @@ const Deals = () => {
           </div>
         </div>
       </div>
-      <div className='text-xs flex p-2 flex-col font-medium'>
+      <div className='text-sm flex p-2 flex-col font-medium'>
         <div className='py-2 '>
-          <h1 className='text-sm font-black'>Popular Filters</h1>
+          <h1 className='text-base font-black'>Popular Filters</h1>
         </div>
         <div className='flex flex-col gap-1'>
             <div className='flex justify-between  items-center'>
@@ -69,7 +69,7 @@ const Deals = () => {
         </div>
       </div>
       <div className='flex mt-5 flex-col gap-2'>
-        <h1 className='text-sm font-black'>Star Rating</h1>
+        <h1 className='text-base font-black'>Star Rating</h1>
         <div className='flex justify-between'>
             <button className=' text-blue-700 bg-blue-300 w-9 h-9 rounded-full'>1</button>
             <button className=' text-blue-700 bg-blue-300 w-9 h-9 rounded-full'>2</button>
@@ -78,8 +78,8 @@ const Deals = () => {
             <button className=' text-blue-700 bg-blue-300 w-9 h-9 rounded-full'>5</button>
         </div>
       </div>
-      <div className='text-xs mt-5 font-medium flex p-2 flex-col gap-2'>
-        <h1 className='text-sm font-black'>Hotel Type</h1>
+      <div className='text-sm mt-5 font-medium flex p-2 flex-col gap-2'>
+        <h1 className='text-base font-black'>Hotel Type</h1>
         <div className='flex flex-col gap-1'>
             <div className='flex justify-between gap-5 items-center'>
               <div className='flex gap-1 items-center'>

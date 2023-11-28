@@ -7,6 +7,7 @@ import { IoIosArrowDown } from 'react-icons/io'
 import axios from 'axios'
 import { useQuery } from '@tanstack/react-query'
 import { useParams } from 'next/navigation'
+import { DateRangePicker } from 'react-date-range'
 
 const BookHotel = () => { 
   const [hotelInfo , getHotelInfo] = useState([])
