@@ -5,7 +5,7 @@ import Hotels from './Hotels'
 
 const HotelResult = () => {
   return (
-        <div className='flex md:flex-row mb-10 flex-col justify-center gap-5'>
+        <div className='flex lg:flex-row mb-10 flex-col justify-center gap-5'>
           <Deals />
           <Hotels />
         </div>

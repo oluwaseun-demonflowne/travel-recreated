@@ -4,12 +4,19 @@ import { BiSearch } from 'react-icons/bi'
 import { CiLocationOn } from 'react-icons/ci'
 import { FaRegCalendarAlt } from 'react-icons/fa'
 import { GoPerson } from 'react-icons/go'
+import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover'
+import { Button } from '../ui/button'
+import { Calendar } from '../ui/calendar'
+import { cn } from '@/lib/utils'
+import { format } from "date-fns"
 
 interface Props {
     hotelCityName: Dispatch<SetStateAction<string>>
+    date: Date
+    setDate: Dispatch<SetStateAction<Date>>
 }
 
-const Hotel = ({hotelCityName}: Props) => {
+const Hotel = ({hotelCityName,date,setDate}: Props) => {
 
 
   return (
@@ -34,7 +41,27 @@ const Hotel = ({hotelCityName}: Props) => {
             <FaRegCalendarAlt />
             <div className='w-[190px] '>
                 <p className='text-base font-bold'>In</p>
-                <p className='text-sm text-gray-600'>Add Date</p>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Button
+                      variant={"outline"}
+                      className={cn(
+                        "w-[170px] justify-start text-left text-sm font-normal",
+                        !date && "text-muted-foreground"
+                      )}
+                    >
+                      {date ? format(date, "PPP") : <span>Pick a date</span>}
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0">
+                    <Calendar
+                      mode="single"
+                      selected={date}
+                      onSelect={setDate}
+                      initialFocus
+                    />
+                  </PopoverContent>
+                </Popover>
             </div>
         </div>
         <div className='md:border-r-2 gap-2 flex md:gap-1 items-center p-2'>

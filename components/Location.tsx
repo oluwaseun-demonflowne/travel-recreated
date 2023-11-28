@@ -10,12 +10,17 @@ import toast from 'react-hot-toast'
 
 const Location = () => {
   const Router = useRouter()
+
+  // Hotel picker
   const [hotelCity ,setHotelCity] = useState("")
+  const [date, setDate] = React.useState<Date>(new Date())
+  
   const [stay, setStay] = useState(true)
   const [flight, setFlight] = useState(false)
   const [cars, setCars] = useState(false)
   const [hotel, setHotel] = useState(false)
   const [loading, setLoading] = useState(false)
+  
 
   
 
@@ -78,7 +83,7 @@ const Location = () => {
               {stay && <Stay />}
               {flight && <Flight />}
               {cars && <Cars />}
-              {hotel &&<Hotel hotelCityName={setHotelCity} />}
+              {hotel && <Hotel date={date} setDate={setDate} hotelCityName={setHotelCity} />}
             <button onClick={() => {hotelCity.length > 4 ? goToLocation() : toast.error("City name is empty!")}}  className={`pointer ${loading ? 'pointer-events-none opacity-30' : ""} bg-blue-600 mr-5 w-10 h-10 text-lg flex justify-center items-center rounded-full p-2`}><BiSearch className='text-white' /></button>
             </div>
         </div>    
