@@ -105,28 +105,7 @@ const Hotels = () => {
         </div>
         <div className='flex flex-col mb-28 justify-center gap-5'>
         <div className='flex flex-col items-center mb-28 justify-center gap-5'>
-          {/*  */}
-        {/* <div className="flex justify-between">
-        <Skeleton className='w-48 h-4' />  
-        <Skeleton className='w-20 h-6 rounded-full' />  
-        </div>  
-        <div className=' animate-pulse flex md:flex-row items-center flex-col w-[300px] md:w-[800px] rounded-2xl border p-2 md:p-2 gap-3 md:gap-10'>
-          <Skeleton className='w-48 h-48 rounded-md' />  
-          <div className='flex w-full  p-2 md:p-0 flex-col gap-2 md:gap-5  md:w-[550px] justify-between'>
-            <Skeleton className='w-20 h-6 rounded-full' />
-            <Skeleton className='w-44 h-6' />
-            <div className='flex gap-2'>
-              <Skeleton className='w-20 h-6' />
-              <Skeleton className='w-20 h-6' />
-            </div>
-            <div className='flex justify-between'>
-              <Skeleton className='w-20 h-6' />
-              <Skeleton className='w-20 h-6' />
-            </div>
-          </div>
-        </div> */}
-        {/*  */}
-        {data?.map((i:Hotels) => (
+        {Array.isArray(data) && data?.map((i:Hotels) => (
           <div key={i.id} className='flex md:flex-row items-center flex-col w-[300px] md:w-[800px] rounded-2xl border p-2 md:p-0 gap-3 md:gap-10'>
               <div className=' w-full md:w-48 p-2'>
                   <Image placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}  width={100} height={100} src={i.image1} className='h-52 md:h-48 md:w-48 w-[100%] rounded-2xl' alt="picture location" />
@@ -149,7 +128,7 @@ const Hotels = () => {
                   </div>
                   <div className='flex gap-4 md:gap-0 justify-between items-center'>
                       <p className='text-lg font-bold'>{i.price}/<span className='text-sm font-light'>per night</span></p>
-                      <Link href={`/hotel/${i.id}`}><button className='p-2 text-sm bg-blue-900 w-28 h-10 text-white rounded-full'>View Details</button></Link>
+                      <Link href={`/hotel/${i.id}`}><h1 className='p-2 text-sm bg-blue-900 w-28 h-10 text-white rounded-full'>View Details</h1></Link>
                   </div>
               </div>
           </div> 
