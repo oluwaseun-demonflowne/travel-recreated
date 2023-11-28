@@ -6,6 +6,7 @@ import Hotel from './ChooseFeed/Hotel'
 import Flight from './ChooseFeed/Flight'
 import Cars from './ChooseFeed/Cars'
 import { useRouter } from 'next/navigation'
+import toast from 'react-hot-toast'
 
 const Location = () => {
   const Router = useRouter()
@@ -14,6 +15,7 @@ const Location = () => {
   const [flight, setFlight] = useState(false)
   const [cars, setCars] = useState(false)
   const [hotel, setHotel] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   
 
@@ -47,6 +49,7 @@ const Location = () => {
   // const [searchLocation, setSearchLocation] = useState('')
 
   const goToLocation = () => {
+    setLoading(true)
     if(stay){
         // Router.push(`/location/search?location=${searchLocation}`)   
     }
@@ -76,7 +79,7 @@ const Location = () => {
               {flight && <Flight />}
               {cars && <Cars />}
               {hotel &&<Hotel hotelCityName={setHotelCity} />}
-            <button onClick={() => goToLocation()}  className='pointer bg-blue-600 mr-5 w-10 h-10 text-lg flex justify-center items-center rounded-full p-2'><BiSearch className='text-white' /></button>
+            <button onClick={() => {hotelCity.length > 4 ? goToLocation() : toast.error("City name is empty!")}}  className={`pointer ${loading ? 'pointer-events-none opacity-30' : ""} bg-blue-600 mr-5 w-10 h-10 text-lg flex justify-center items-center rounded-full p-2`}><BiSearch className='text-white' /></button>
             </div>
         </div>    
     </div>

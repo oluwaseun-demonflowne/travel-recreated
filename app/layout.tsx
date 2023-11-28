@@ -7,7 +7,7 @@ import NavBar from "./(shared)/NavBar"
 import Newsletter from "./(shared)/Newsletter"
 import Footer from "./(shared)/Footer"
 import { Oxanium } from 'next/font/google'
-
+import {Toaster} from 'react-hot-toast';
 export const metadata: Metadata = {
   title: 'Travel with us. Explore',
   description: 'a website to book hotel,car',
@@ -30,7 +30,8 @@ export default function RootLayout({
         <Suspense  fallback={<Loading />}>
           <Providers>
             <NavBar />
-              {children}
+              <Toaster />
+                {children}
             <Newsletter />
             <Footer />
           </Providers>
