@@ -206,3 +206,16 @@
   overflow: hidden;
   transition: max-height .2s ease-out;
 }
+
+
+/* Leaflet */
+.leaflet-container {
+  height: 400px;
+  width: 100%;
+  
+}
+
+.leaflet-div-icon {
+  background: transparent;
+  border: none;
+}

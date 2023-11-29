@@ -13,7 +13,7 @@ const Flight = () => {
             <div className='w-[190px] '>
                 <p className='text-base font-bold'>From</p>
                 <p className='text-sm text-gray-600'>Select Location</p>
-                <input type='text' className='rounded-md outline-none border w-48 h-10 text-sm p-2'/>
+                <input type='text' className='rounded-md outline-none border w-48 h-10 text-[17px] p-2'/>
             </div>
         </div>
         <div className='md:border-r-2 gap-2 flex md:gap-1 items-center p-2'>
@@ -21,7 +21,7 @@ const Flight = () => {
             <div className='w-[190px] '>
                 <p className='text-base font-bold'>To</p>
                 <p className='text-sm text-gray-600'>Select Location</p>
-                <input type='text' className='rounded-md outline-none border w-48 h-10 text-sm p-2'/>
+                <input type='text' className='rounded-md outline-none border w-48 h-10 text-[17px] p-2'/>
             </div>
         </div>
         <div className='md:border-r-2 flex gap-1 items-center p-2'>

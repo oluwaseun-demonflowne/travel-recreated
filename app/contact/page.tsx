@@ -6,6 +6,7 @@ import { FaBuilding } from 'react-icons/fa'
 import { MdEmail, MdPriceChange } from 'react-icons/md'
 import { TbBrandBooking } from 'react-icons/tb'
 import QuestionPic from "@/public/contact.jpg"
+import Map from './Map'
 
 
 export default async function Page() {
@@ -46,8 +47,8 @@ export default async function Page() {
                 </div>
             </div>
         </div>
-        <div className='bg-slate-700 mt-12 h-48'>
-            <p>Put a map here</p>
+        <div className=' mt-12 px-4 md:px-0 '>
+            <Map />
         </div>
         <div className='text-center px-4 md:px-20 my-20'>
             <h1 className='font-black mt-2 text-left md:text-center text-xl md:text-2xl'>Why Choose Us</h1>

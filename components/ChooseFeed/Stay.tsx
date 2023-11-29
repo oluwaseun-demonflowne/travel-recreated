@@ -14,7 +14,7 @@ const Stay = () => {
             <div className='w-[190px] '>
                 <p className='text-base text-black font-bold'>Location</p>
                 <p className='text-sm text-gray-600'>Where are you going?</p>
-                <input type='text' className='rounded-md outline-none border w-48 h-10 text-sm p-2' />
+                <input type='text' className='rounded-md outline-none border w-48 h-10 text-[17px] p-2' />
             </div>
         </div>
         <div className='md:border-r-2 gap-2 flex md:gap-3 items-center  p-2'>
@@ -36,7 +36,7 @@ const Stay = () => {
             <div className='w-[190px] '>
                 <p className='text-base text-black font-bold'>Guest</p>
                 <p className='text-sm text-gray-600'>Add Guest</p>
-                <input type='text' className='rounded-md outline-none border w-48 h-10 text-sm p-2' />
+                <input type='text' className='rounded-md outline-none border w-48 h-10 text-[17px] p-2' />
             </div>
         </div>
       </div>

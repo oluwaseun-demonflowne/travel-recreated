@@ -51,19 +51,19 @@ const LocationImage = () => {
     <>
       <div className='w-full hidden md:flex md:px-0 px-4 mt-10  gap-2'>
           <span className='w-[60%] flex justify-end'>
-              <Image unoptimized={true} placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`} priority={true} quality={100}  alt='image' width={100} height={100} src={data?.image1} className='rounded-2xl w-full md:w-[600px] md:h-[600px]' />
+              <Image unoptimized={true} placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`} quality={100}  alt='image' width={100} height={100} src={data?.image1} className='rounded-2xl w-full md:w-[600px] md:h-[600px]' />
           </span>
           <div className='w-[40%] flex flex-col gap-2'>
-              <Image unoptimized={true} placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`} priority={true} alt='image' width={100} height={100} src={data?.image2} className='rounded-2xl md:w-[299px] md:h-[295px]' />
-              <Image unoptimized={true} placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}  priority={true} alt='image' width={100} height={100} src={data?.image3} className='rounded-2xl md:w-[299px] md:h-[295px]' />
+              <Image unoptimized={true} placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`} alt='image' width={100} height={100} src={data?.image2} className='rounded-2xl md:w-[299px] md:h-[295px]' />
+              <Image unoptimized={true} placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`} alt='image' width={100} height={100} src={data?.image3} className='rounded-2xl md:w-[299px] md:h-[295px]' />
           </div>
       </div>
       <div className='md:hidden px-4 mt-10 flex flex-col gap-2'>
-        <Image unoptimized={true}  quality={100} placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`} priority={true}  alt='image' width={100} height={100} src={currentImg !== "" ? currentImg : data?.image1} className='rounded-2xl w-[100%]' />
+        <Image unoptimized={true}  quality={100} placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}  alt='image' width={100} height={100} src={currentImg !== "" ? currentImg : data?.image1} className='rounded-2xl w-[100%]' />
         <div className='flex gap-1'>
-          <Image unoptimized={true} onClick={(e:React.MouseEvent<HTMLImageElement>) => setCurrentImg(e.currentTarget.getAttribute('src') || "")}  quality={100} placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`} priority={true}  alt='image' width={100} height={100} src={data?.image1} className='rounded-2xl w-12 h-12' />
-          <Image unoptimized={true}  onClick={(e:React.MouseEvent<HTMLImageElement>) => setCurrentImg(e.currentTarget.getAttribute('src') || "")} quality={100} placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`} priority={true}  alt='image' width={100} height={100} src={data?.image2} className='rounded-2xl w-12 h-12' />
-          <Image unoptimized={true} onClick={(e:React.MouseEvent<HTMLImageElement>) => setCurrentImg(e.currentTarget.getAttribute('src') || "")} quality={100} placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`} priority={true}  alt='image' width={100} height={100} src={data?.image3} className='rounded-2xl w-12 h-12' />
+          <Image unoptimized={true} onClick={(e:React.MouseEvent<HTMLImageElement>) => setCurrentImg(e.currentTarget.getAttribute('src') || "")}  quality={100} placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}  alt='image' width={100} height={100} src={data?.image1} className='rounded-2xl w-12 h-12' />
+          <Image unoptimized={true}  onClick={(e:React.MouseEvent<HTMLImageElement>) => setCurrentImg(e.currentTarget.getAttribute('src') || "")} quality={100} placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}  alt='image' width={100} height={100} src={data?.image2} className='rounded-2xl w-12 h-12' />
+          <Image unoptimized={true} onClick={(e:React.MouseEvent<HTMLImageElement>) => setCurrentImg(e.currentTarget.getAttribute('src') || "")} quality={100} placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}  alt='image' width={100} height={100} src={data?.image3} className='rounded-2xl w-12 h-12' />
         </div>
       </div>
     </>
