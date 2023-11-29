@@ -17,7 +17,7 @@ const Hotels = () => {
   const searchParams = useSearchParams()
   const location = searchParams.get('location')
   const { isLoading, data } = useQuery({    
-    queryKey: ['HotelSearchId'],
+    queryKey: [`HotelSearchId${location}`],
     queryFn: () =>
       axios
       .get(`/api/searchFeed/hotel/${location}`)
@@ -128,7 +128,7 @@ const Hotels = () => {
                   </div>
                   <div className='flex gap-4 md:gap-0 justify-between items-center'>
                       <p className='text-lg font-bold'>{i.price}/<span className='text-sm font-light'>per night</span></p>
-                      <Link prefetch={false} href={`/hotel/${i.id}`}><button className='p-2 text-sm bg-blue-900 w-28 h-10 text-white rounded-full'>View Details</button></Link>
+                      <Link href={`/hotel/${i.id}`}><button className='p-2 text-sm bg-blue-900 w-28 h-10 text-white rounded-full'>View Details</button></Link>
                   </div>
               </div>
           </div> 

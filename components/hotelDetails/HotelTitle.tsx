@@ -17,8 +17,7 @@ import { Skeleton } from '../ui/skeleton'
 const LocationTitle = () => {
   const {id} = useParams()
   const { isLoading, data } = useQuery({    
-    queryKey: ['HotelSearchId'],
-    refetchOnMount: "always",
+    queryKey: [`HotelSearchId${id}`],
     queryFn: () =>
       axios
         .get(`/api/category/hotel/${id}`)

@@ -14,7 +14,7 @@ const Review = () => {
     const [review,setReview] = useState('')  
 
     const { isLoading,data} = useQuery({    
-        queryKey: ['HotelSearchId'],
+        queryKey: [`HotelSearchId${id}`],
         queryFn: () =>
           axios
             .get(`/api/category/hotel/${id}`)

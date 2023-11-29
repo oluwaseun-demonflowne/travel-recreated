@@ -26,8 +26,7 @@ const BookHotel = () => {
 
 const router = useParams()
   const { isLoading, error, data, isFetching } = useQuery({    
-    queryKey: ['HotelSearchId'],
-    refetchOnMount: "always",
+    queryKey: [`HotelSearchId${router.id}`],
     queryFn: () =>
       axios
         .get(`/api/category/hotel/${router.id}`)

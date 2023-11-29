@@ -27,15 +27,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.variable}>
-        <Suspense  fallback={<Loading />}>
-          <Providers>
-            <NavBar />
-              <Toaster />
-                {children}
-            <Newsletter />
-            <Footer />
-          </Providers>
-        </Suspense>  
+        <Providers>
+          <Suspense  fallback={<Loading />}>
+              <NavBar />
+                <Toaster />
+                  {children}
+              <Newsletter />
+              <Footer />
+          </Suspense>  
+        </Providers>
       </body>
     </html>
   )

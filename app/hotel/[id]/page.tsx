@@ -17,7 +17,7 @@ export default async function Page () {
 const queryClient = getQueryClient()
 
 await queryClient.prefetchQuery({
-    queryKey: ['HotelSearchId'],
+    queryKey: [`HotelSearchId${searchParams}`],
     queryFn: () =>
           axios
             .get(`/api/category/hotel/${searchParams}`)

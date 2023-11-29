@@ -14,8 +14,7 @@ const LocationImage = () => {
   const [currentImg, setCurrentImg] = useState<string>('')
   const {id} = useParams()
   const { isLoading, data } = useQuery({    
-    queryKey: ['HotelSearchId'],
-    refetchOnMount: "always",
+    queryKey: [`HotelSearchId${id}`],
     queryFn: () =>
       axios
         .get(`/api/category/hotel/${id}`)
