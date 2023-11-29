@@ -20,6 +20,7 @@ const HotelOverview = () => {
     const {id} = useParams()
     const { isLoading, error, data, isFetching } = useQuery({    
       queryKey: ['HotelSearchId'],
+      refetchOnMount: "always",
       queryFn: () =>
         axios
           .get(`/api/category/hotel/${id}`)

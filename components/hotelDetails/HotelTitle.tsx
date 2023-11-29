@@ -16,14 +16,15 @@ import { Skeleton } from '../ui/skeleton'
 
 const LocationTitle = () => {
   const {id} = useParams()
-  const { isLoading, data ,isFetching} = useQuery({    
+  const { isLoading, data } = useQuery({    
     queryKey: ['HotelSearchId'],
+    refetchOnMount: "always",
     queryFn: () =>
       axios
         .get(`/api/category/hotel/${id}`)
         .then((res) => res.data),
   });
-  console.log(isLoading,isFetching)
+
   if(isLoading) {
     return (
       <div className='mt-10 px-4 md:px-40'>   

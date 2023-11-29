@@ -15,10 +15,12 @@ const LocationImage = () => {
   const {id} = useParams()
   const { isLoading, data } = useQuery({    
     queryKey: ['HotelSearchId'],
+    refetchOnMount: "always",
     queryFn: () =>
       axios
         .get(`/api/category/hotel/${id}`)
         .then((res) => res.data),
+        
   });
 
   if(isLoading) {
