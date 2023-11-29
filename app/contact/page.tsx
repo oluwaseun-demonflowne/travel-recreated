@@ -1,3 +1,4 @@
+"use client"
 import Image from 'next/image'
 import React from 'react'
 import { AiFillCustomerService } from 'react-icons/ai'
@@ -9,7 +10,7 @@ import QuestionPic from "@/public/contact.jpg"
 import Map from './Map'
 
 
-export default async function Page() {
+export default function Page() {
   return (
     <section>
         <div className='text-center flex flex-col relative gap-1 justify-center mb-16 h-48  mt-5'>

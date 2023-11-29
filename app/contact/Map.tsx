@@ -2,7 +2,6 @@
 import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
 import React from 'react'
-import MarkerClusterGroup from "react-leaflet-markercluster";
 
 type Props = {}
 
