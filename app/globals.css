@@ -184,3 +184,25 @@
     top:0;
 }
 
+.triangle{
+  display: none;
+}
+
+.triangle:checked ~ .calend{
+  max-height: 400px;
+}
+
+.triangle-icon {
+  float: right;
+  transition: all .2s ease-out
+}
+
+.triangle:checked ~ .triangle-icon{
+  transform: rotate(180deg);
+}
+
+.calend{
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .2s ease-out;
+}

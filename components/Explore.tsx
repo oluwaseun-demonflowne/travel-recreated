@@ -69,7 +69,7 @@ const Explore = () => {
     }
 
   return (
-    <div className=' my-10 px-6 md:px-20'>
+    <div className=' my-10 relative px-6 md:px-20'>
         <div className='md:flex items-center  justify-between'>
             <div className='md:flex my-4 md:my-7 flex-col gap-1 text-black'>
                 <h1 className='text-2xl font-black'>Explore to destination</h1>

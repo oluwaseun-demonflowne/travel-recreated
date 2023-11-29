@@ -3,13 +3,15 @@ import React, { FormEvent, useEffect, useState } from 'react'
 import { AiFillStar, AiOutlineArrowUp, AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
 import { BsPercent } from 'react-icons/bs'
 import { CiFlag1 } from 'react-icons/ci'
-import { IoIosArrowDown } from 'react-icons/io'
+import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io'
 import axios from 'axios'
 import { useQuery } from '@tanstack/react-query'
 import { useParams } from 'next/navigation'
 import { DateRangePicker } from 'react-date-range'
+import { Calendar } from '../ui/calendar'
 
 const BookHotel = () => { 
+  const [date, setDate] = React.useState<Date>()
   const [hotelInfo , getHotelInfo] = useState([])
   const [value, onChange] = useState(new Date())
   const [alreadyInCart , setAlreadyInCart] = useState(false)
@@ -55,12 +57,22 @@ const router = useParams()
                     <img src={data?.personWhoCreatedPost?.profilePhoto} className=' w-6 h-6 rounded-full'/>
                 </div>
             </div>
-            <div className='flex flex-col gap-2 border-b-2  p-2 items-center'>
-                <div className="flex w-full items-center justify-between">
-                    <p className='text-base  font-bold'>Date</p>
-                    <IoIosArrowDown />
-                </div>
-                <div>
+            <div className=' gap-2 border-b-2  p-2 items-center'>
+                {/* <div className="flex w-full items-center justify-between"> */}
+                    <p className='text-base date-text float-left font-bold'>Date</p>
+                    <input className="triangle" type="checkbox" id="triangle"/>
+                    <label className="triangle-icon" htmlFor="triangle">
+                        <IoIosArrowUp />
+                    </label>
+                    
+                {/* </div> */}
+                <div className='calend mt-10'>
+                    <Calendar
+                      mode="single"
+                      selected={date}
+                      onSelect={setDate}
+                      initialFocus
+                    />
                 </div>
             </div>
             <div className='flex border-b-2 justify-between p-2 items-center'>
