@@ -58,14 +58,11 @@ const router = useParams()
                 </div>
             </div>
             <div className=' gap-2 border-b-2  p-2 items-center'>
-                {/* <div className="flex w-full items-center justify-between"> */}
-                    <p className='text-base date-text float-left font-bold'>Date</p>
-                    <input className="triangle" type="checkbox" id="triangle"/>
-                    <label className="triangle-icon" htmlFor="triangle">
-                        <IoIosArrowUp />
-                    </label>
-                    
-                {/* </div> */}
+                <p className='text-base date-text float-left font-bold'>Date</p>
+                <input className="triangle" type="checkbox" id="triangle"/>
+                <label className="triangle-icon" htmlFor="triangle">
+                    <IoIosArrowUp />
+                </label>
                 <div className='calend mt-10'>
                     <Calendar
                       mode="single"

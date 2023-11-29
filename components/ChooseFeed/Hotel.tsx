@@ -26,7 +26,7 @@ const Hotel = ({hotelCityName,date,setDate}: Props) => {
             <div className='w-[190px] '>
                 <p className='text-base font-bold'>City</p>
                 <p className='text-sm text-gray-600'>Which City are you intrested in</p>
-                <input onChange={(e) => hotelCityName(e.target.value)} type='text' className='rounded-md outline-none border w-48 h-10 text-sm p-2'/>
+                <input onChange={(e) => hotelCityName(e.target.value)} type='text' className='rounded-md outline-none border w-48 h-10 text-[17px] p-2'/>
             </div>
         </div>
         <div className='md:border-r-2 gap-2 flex md:gap-1 items-center p-2'>
