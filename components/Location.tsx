@@ -15,6 +15,21 @@ const Location = () => {
   const [hotelCity ,setHotelCity] = useState("")
   const [date, setDate] = React.useState<Date>(new Date())
   
+  // Car Picker
+  const [pickupLocation , setPickupLocation] = useState("")
+  const [noOfPassengers , setNoOfPassengers] = useState(0)
+
+  // Stay Picker
+  const [locationCity ,setLocationCity] = useState("")
+  const [guestNo ,setGuestNo] = useState(0)
+  const [startDate, setStartDate] = React.useState<Date>(new Date())
+  const [endDate, setEndDate] = React.useState<Date>(new Date())
+
+  // Flight Picker
+  const [flightStartCity ,setFlightStartCity] = useState("")
+  const [flightEndCity ,setFlightEndCity] = useState("")
+  const [departureMonth ,setDepartureMonth] = useState("")
+
   const [stay, setStay] = useState(true)
   const [flight, setFlight] = useState(false)
   const [cars, setCars] = useState(false)
@@ -80,9 +95,12 @@ const Location = () => {
                 <button onClick={showHotel}   className={`text-sm border-black w-20 py-4 ${hotel ? 'px-4 border-b-2' : ''} text-slate-500 cursor-pointer`}>Hotel</button>
             </div>
             <div className='flex justify-between items-center'>
-              {stay && <Stay />}
-              {flight && <Flight />}
-              {cars && <Cars />}
+              {stay && <Stay setLocationCity={setLocationCity} setGuestNo={setGuestNo} startDate={startDate} endDate={endDate} setStartDate={setStartDate} setEndDate={setEndDate} />}
+
+              {flight && <Flight setFlightStartCity={setFlightStartCity} setFlightEndCity={setFlightEndCity} />}
+
+              {cars && <Cars setPickUpLocation={setPickupLocation} setNoOfPassengers={setNoOfPassengers} />}
+
               {hotel && <Hotel date={date} setDate={setDate} hotelCityName={setHotelCity} />}
             <button onClick={() => {hotelCity.length > 4 ? goToLocation() : toast.error("City name is empty!")}}  className={`pointer ${loading ? 'pointer-events-none opacity-30' : ""} bg-blue-600 mr-5 w-10 h-10 text-lg flex justify-center items-center rounded-full p-2`}><BiSearch className='text-white' /></button>
             </div>

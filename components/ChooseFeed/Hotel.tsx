@@ -1,6 +1,5 @@
 "use client"
 import React, { Dispatch, SetStateAction } from 'react'
-import { BiSearch } from 'react-icons/bi'
 import { CiLocationOn } from 'react-icons/ci'
 import { FaRegCalendarAlt } from 'react-icons/fa'
 import { GoPerson } from 'react-icons/go'
