@@ -1,9 +1,9 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { AiFillStar } from 'react-icons/ai'
 import { LiaCitySolid, LiaTimesSolid, LiaToiletPaperSolid } from 'react-icons/lia'
-import { MdFastfood, MdLuggage, MdOutlineGroups2, MdOutlineTravelExplore } from 'react-icons/md'
-import {TbLanguage, TbSwimming} from 'react-icons/tb'
+import { MdFastfood , MdOutlineGroups2 } from 'react-icons/md'
+import {TbSwimming} from 'react-icons/tb'
 import FrequentlyAsked from './FrequentlyAsked'
 import Review from './Review'
 import { BsFillRouterFill, BsLightningCharge, BsPersonWorkspace } from 'react-icons/bs'
@@ -18,7 +18,7 @@ const HotelOverview = () => {
     
 
     const {id} = useParams()
-    const { isLoading, error, data, isFetching } = useQuery({    
+    const { isLoading , data} = useQuery({    
         queryKey: [`HotelSearchId${id}`],
       queryFn: () =>
         axios

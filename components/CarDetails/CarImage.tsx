@@ -12,7 +12,7 @@ const CarImage = () => {
 
   const [currentImg, setCurrentImg] = useState<string>('')
   const {id} = useParams()
-  const { isLoading, error, data, isFetching } = useQuery({    
+  const { isLoading, data } = useQuery({    
       queryKey: [`CarSearchId${id}`],
       queryFn: () =>
           axios

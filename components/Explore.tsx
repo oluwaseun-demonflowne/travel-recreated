@@ -48,7 +48,34 @@ const Explore = () => {
 
     if (isLoading) {
         return (
-            <div className=' my-10 px-6 md:px-20'>
+            <div className='flex flex-wrap gap-4 my-10 px-6 md:px-20'>
+                <div className='border animate-pulse w-56 overflow-hidden rounded-2xl'>
+                    <Skeleton className=" h-60 w-56 " />
+                    <Skeleton className="ml-4 h-4 w-32 mt-4" />
+                    <Skeleton className="ml-4 h-4 w-24 mt-2" />
+                    <div className="flex items-center px-4 mt-6 justify-between">
+                        <Skeleton className=" h-4 w-20" />
+                        <Skeleton className=" h-6 w-16" />
+                    </div>
+                </div>
+                <div className='border animate-pulse w-56 overflow-hidden rounded-2xl'>
+                    <Skeleton className=" h-60 w-56 " />
+                    <Skeleton className="ml-4 h-4 w-32 mt-4" />
+                    <Skeleton className="ml-4 h-4 w-24 mt-2" />
+                    <div className="flex items-center px-4 mt-6 justify-between">
+                        <Skeleton className=" h-4 w-20" />
+                        <Skeleton className=" h-6 w-16" />
+                    </div>
+                </div>
+                <div className='border animate-pulse w-56 overflow-hidden rounded-2xl'>
+                    <Skeleton className=" h-60 w-56 " />
+                    <Skeleton className="ml-4 h-4 w-32 mt-4" />
+                    <Skeleton className="ml-4 h-4 w-24 mt-2" />
+                    <div className="flex items-center px-4 mt-6 justify-between">
+                        <Skeleton className=" h-4 w-20" />
+                        <Skeleton className=" h-6 w-16" />
+                    </div>
+                </div>
                 <div className='border animate-pulse w-56 overflow-hidden rounded-2xl'>
                     <Skeleton className=" h-60 w-56 " />
                     <Skeleton className="ml-4 h-4 w-32 mt-4" />

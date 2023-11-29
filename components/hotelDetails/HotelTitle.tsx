@@ -1,6 +1,5 @@
 "use client"
-import React, { useEffect, useState } from 'react'
-import { AiFillStar } from 'react-icons/ai'
+import React from 'react'
 import { BiCurrentLocation } from 'react-icons/bi'
 import { BsFlag } from 'react-icons/bs'
 import { CiHeart } from 'react-icons/ci'

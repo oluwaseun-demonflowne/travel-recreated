@@ -1,33 +1,51 @@
 "use client"
-import React, { useEffect } from 'react'
-import { AiFillStar, AiOutlineCar, AiOutlineUsergroupAdd } from 'react-icons/ai'
-import { BiTimeFive } from 'react-icons/bi'
-import { FaBriefcaseMedical } from 'react-icons/fa'
-import { LiaBusAltSolid, LiaTimesSolid } from 'react-icons/lia'
-import { MdFastfood, MdLuggage, MdOutlineGroups2, MdOutlineTravelExplore } from 'react-icons/md'
-import {TbLanguage} from 'react-icons/tb'
+import React from 'react'
+import { AiOutlineCar, AiOutlineUsergroupAdd } from 'react-icons/ai'
 import FrequentlyAsked from './FrequentlyAsked'
 import { LuLuggage } from 'react-icons/lu'
 import { RxDotFilled } from 'react-icons/rx'
-import Review from './Review'
 import axios from 'axios'
 import { useParams } from 'next/navigation'
 import { useQuery } from '@tanstack/react-query'
+import { Skeleton } from '../ui/skeleton'
 
 const CarOverview = () => {
-    const router = useParams()
     
 
 
-    const { isLoading, error, data, isFetching } = useQuery({    
-        queryKey: ['Car'],
+    const {id} = useParams()
+    const { isLoading , data } = useQuery({    
+        queryKey: [`CarSearchId${id}`],
         queryFn: () =>
-          axios
-            .get(`/api/category/car/${router.id}`)
-            .then((res) => res.data),
-      });
+            axios
+              .get(`/api/category/car/${id}`)
+              .then((res) => res.data),
+    })
     
-    
+    if(isLoading) {
+        return (
+            <div className='flex  flex-col animate-pulse gap-5 py-3 '>
+                <Skeleton className='w-44 h-6' />
+                <hr></hr>
+                <div className='flex gap-2 flex-wrap'>
+                    <div className='flex gap-2 items-center'>
+                        <Skeleton className='w-10 h-10 rounded-full' />
+                        <Skeleton className='w-40 h-4' />
+                    </div>
+                    <div className='flex gap-2 items-center'>
+                        <Skeleton className='w-10 h-10 rounded-full' />
+                        <Skeleton className='w-40 h-4' />
+                    </div>
+                    <div className='flex gap-2 items-center'>
+                        <Skeleton className='w-10 h-10 rounded-full' />
+                        <Skeleton className='w-40 h-4' />
+                    </div>
+                </div>
+                <Skeleton className='w-40 h-4' />
+            <Skeleton className='w-[100%] h-72' />
+        </div>
+        )
+    }
 
 
   return (

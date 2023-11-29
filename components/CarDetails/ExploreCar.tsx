@@ -1,6 +1,6 @@
 "use client"
 import {AiFillStar, AiOutlineCar, AiOutlineHeart, AiOutlineUsergroupAdd} from 'react-icons/ai'
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import React, { useContext } from 'react'
 import {AiOutlineLeft, AiOutlineRight} from 'react-icons/ai'
 import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu'
 import 'react-horizontal-scrolling-menu/dist/styles.css'
@@ -10,6 +10,7 @@ import { useQuery } from '@tanstack/react-query'
 import { Cars } from '@/index'
 import Image from 'next/image'
 import { shimmer, toBase64 } from '../Shimmer'
+import { Skeleton } from '../ui/skeleton'
 
 
 const LeftArrow = () => {
@@ -44,13 +45,57 @@ const RightArrow = () => {
 
 const ExploreCar = () => {
 
-const { isLoading, error, data, isFetching } = useQuery({    
+const { isLoading , data } = useQuery({    
   queryKey: ['exploreCar'],
   queryFn: () =>
     axios
       .get('/api/category/car')
       .then((res) => res.data),
 });
+
+if (isLoading) {
+  return (
+      <div className='flex flex-wrap justify-center gap-4 my-10 px-6 md:px-20'>
+          <div className='border animate-pulse w-56 overflow-hidden rounded-2xl'>
+              <Skeleton className=" h-60 w-56 " />
+              <Skeleton className="ml-4 h-4 w-32 mt-4" />
+              <Skeleton className="ml-4 h-4 w-24 mt-2" />
+              <div className="flex items-center px-4 mt-6 justify-between">
+                  <Skeleton className=" h-4 w-20" />
+                  <Skeleton className=" h-6 w-16" />
+              </div>
+          </div>
+          <div className='border animate-pulse w-56 overflow-hidden rounded-2xl'>
+              <Skeleton className=" h-60 w-56 " />
+              <Skeleton className="ml-4 h-4 w-32 mt-4" />
+              <Skeleton className="ml-4 h-4 w-24 mt-2" />
+              <div className="flex items-center px-4 mt-6 justify-between">
+                  <Skeleton className=" h-4 w-20" />
+                  <Skeleton className=" h-6 w-16" />
+              </div>
+          </div>
+          <div className='border animate-pulse w-56 overflow-hidden rounded-2xl'>
+              <Skeleton className=" h-60 w-56 " />
+              <Skeleton className="ml-4 h-4 w-32 mt-4" />
+              <Skeleton className="ml-4 h-4 w-24 mt-2" />
+              <div className="flex items-center px-4 mt-6 justify-between">
+                  <Skeleton className=" h-4 w-20" />
+                  <Skeleton className=" h-6 w-16" />
+              </div>
+          </div>
+          <div className='border animate-pulse w-56 overflow-hidden rounded-2xl'>
+              <Skeleton className=" h-60 w-56 " />
+              <Skeleton className="ml-4 h-4 w-32 mt-4" />
+              <Skeleton className="ml-4 h-4 w-24 mt-2" />
+              <div className="flex items-center px-4 mt-6 justify-between">
+                  <Skeleton className=" h-4 w-20" />
+                  <Skeleton className=" h-6 w-16" />
+              </div>
+          </div>
+      </div>
+  )
+}
+
 
 
 
