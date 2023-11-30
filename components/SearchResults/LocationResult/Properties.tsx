@@ -113,13 +113,13 @@ const Properties = () => {
                           <p className='flex   text-base font-medium items-center'><AiFillStar className='text-lg text-yellow-400 font-bold '/></p>
                           <span>5 star</span>
                       </div>
-                        <p>{i.day}{' '} Day Tour</p>
+                        <p className='text-base'>{i.day}{' '} Day Tour</p>
                     </div>
-                    <p className='text-sm font-black'>{i.locationCaption}</p>
-                    <p className='flex gap-1 text-xs items-center'><MdLocationOn className='text-blue-800 text-base' />{i.locationAt}</p>
+                    <p className='text-base font-black'>{i.locationCaption}</p>
+                    <p className='flex gap-1 text-base items-center'><MdLocationOn className='text-blue-800 text-base' />{i.locationAt}</p>
                     <div className='flex justify-between items-center'>
-                        <p className='font-bold'>{i.price}/<span className='text-xs font-light'>per night</span></p>
-                        <Link href={`/location/${i.id}`}><button className='p-2 text-xs bg-blue-900 w-28 h-10 text-white rounded-full'>View Details</button></Link>
+                        <p className='font-bold'>{i.price}/<span className='text-base font-light'>per night</span></p>
+                        <Link href={`/location/${i.id}`}><button className='p-2 text-sm bg-blue-900 w-28 h-10 text-white rounded-full'>View Details</button></Link>
                     </div>
                 </div>
             </div> 
