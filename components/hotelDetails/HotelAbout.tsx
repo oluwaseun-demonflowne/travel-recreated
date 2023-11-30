@@ -7,11 +7,10 @@ import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import { useParams } from 'next/navigation'
 
-type Props = {}
 
-const HotelAbout = (props: Props) => {
+const HotelAbout = () => {
   const {id} = useParams()
-  const {} = useQuery({    
+  const {data} = useQuery({    
     queryKey: [`HotelSearchId${id}`],
     queryFn: () =>
       axios
@@ -23,7 +22,7 @@ const HotelAbout = (props: Props) => {
     <div>
       <div className='px-4 md:px-40 mt-10 md:flex-row flex-col flex gap-10'>
         <HotelOverview />
-        <BookHotel />
+        {data && <BookHotel />}
       </div>
       <Explore />
     </div>

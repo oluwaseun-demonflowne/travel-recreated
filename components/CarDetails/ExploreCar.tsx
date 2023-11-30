@@ -118,13 +118,13 @@ if (isLoading) {
                 <span className='w-9 h-9 bg-white rounded-full opacity-70 flex absolute right-2 top-2 justify-center items-center'><AiOutlineHeart /></span>
                 <Image placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`} width={100} height={100} quality={10} src={i.image1} className=' w-56 h-60' alt="images"/>
                 <div className='p-2'>
-                    <Link href={`/car/${i.id}`}><h1 className='text-sm font-bold'>{i.carName}</h1></Link>
-                    <div className='flex gap-2 text-xs items-center text-slate-500'>
+                    <Link href={`/car/${i.id}`}><h1 className='text-lg font-bold'>{i.carName}</h1></Link>
+                    <div className='flex gap-2 text-base items-center text-slate-500'>
                         <p className='flex gap-1 items-center'><AiOutlineUsergroupAdd />{i.passengerNo}</p>
                         <p className='flex gap-1 items-center'><AiOutlineCar />{i.trans}</p>
                     </div>
                     <div className='flex justify-between mt-4'>
-                        <p className='font-bold'>${i.price}/<span className='text-xs font-light'>per night</span></p>
+                        <p className='font-bold'>${i.price}/<span className='text-sm font-light'>per night</span></p>
                         <p className='flex bg-[rgb(254,247,221)] text-xs font-medium rounded-full p-2 items-center'><AiFillStar className='text-sm text-yellow-400'/>4.9</p>
                     </div>
                 </div>

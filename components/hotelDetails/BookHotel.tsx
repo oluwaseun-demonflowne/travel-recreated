@@ -1,22 +1,18 @@
 "use client"
-import React, { FormEvent, useEffect, useState } from 'react'
-import { AiFillStar, AiOutlineArrowUp, AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
+import React, {  useState } from 'react'
+import { AiFillStar , AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
 import { BsPercent } from 'react-icons/bs'
 import { CiFlag1 } from 'react-icons/ci'
-import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io'
+import { IoIosArrowUp } from 'react-icons/io'
 import axios from 'axios'
 import { useQuery } from '@tanstack/react-query'
 import { useParams } from 'next/navigation'
-import { DateRangePicker } from 'react-date-range'
 import { Calendar } from '../ui/calendar'
+import toast from 'react-hot-toast'
 
 const BookHotel = () => { 
   const [date, setDate] = React.useState<Date>()
-  const [hotelInfo , getHotelInfo] = useState([])
-  const [value, onChange] = useState(new Date())
-  const [alreadyInCart , setAlreadyInCart] = useState(false)
   const [night ,setNight] = useState(0)
-  const [hotelCart, setHotelCart] = useState([])
   const [passenger, setPassenger] = useState(0)  
   const [children, setChildren] = useState(0)  
   
@@ -25,7 +21,7 @@ const BookHotel = () => {
   }
 
 const router = useParams()
-  const { isLoading, error, data, isFetching } = useQuery({    
+  const { data } = useQuery({    
     queryKey: [`HotelSearchId${router.id}`],
     queryFn: () =>
       axios
@@ -74,8 +70,14 @@ const router = useParams()
             </div>
             <div className='flex border-b-2 justify-between p-2 items-center'>
                 <div>
-                    <p className='text-base font-bold'>Room No</p>
-                    <input type='text' className='outline-none border p-4 rounded-md text-sm' placeholder='No of night'/>
+                    <p className='text-base font-bold'>No of night</p>
+                    <input onChange={(e) => {
+                        if (isNaN(Number(e.target.value))) {
+                            toast.error("Please input a valid number")
+                        }
+                        if (!isNaN(Number(e.target.value))) {
+                        setNight(parseInt(e.target.value))}
+                    }} type='text' className='outline-none border p-4 rounded-md text-sm' placeholder='No of night'/>
                 </div>
             </div>
             <div className='flex border-b-2 justify-between p-2 items-center'>
@@ -114,8 +116,8 @@ const router = useParams()
                 <input type='text' placeholder='Enter promo code' className='border w-full text-sm p-2 rounded-full' />
                 <div className='flex flex-col gap-2 mt-3 mb-2 border-b-2 py-2'>
                     <div className='flex justify-between items-center'>
-                        <p className='text-base'>${data?.price} * {night} night</p>
-                        <p className='text-base font-black'>${data?.price * night}</p>
+                        <p className='text-base'>${data?.price} * {night > 0 ? night : 1} night</p>
+                        <p className='text-base font-black'>${data?.price * (night > 0 ? night : 1)}</p>
                     </div>
                     <div className='flex justify-between items-center'>
                         <p className='text-base'>15% discount</p>
@@ -129,7 +131,7 @@ const router = useParams()
                 <div>
                     <div className='flex justify-between items-center'>
                         <p className='text-base font-semibold'>Total</p>
-                        <p className='text-base font-black'>${(data?.price * night) + 150}</p>
+                        <p className='text-base font-black'>${(data?.price * (night > 0 ? night : 1)) + 150}</p>
                     </div>
                 </div>
                 {<button type='submit' className='p-2 border w-full bg-blue-700 text-white text-lg rounded-full'>Book</button> 

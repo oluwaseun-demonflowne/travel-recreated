@@ -11,6 +11,7 @@ import { useQuery } from '@tanstack/react-query'
 import { Locations } from '@/index'
 import Image from 'next/image'
 import { shimmer, toBase64 } from '../Shimmer'
+import { Skeleton } from '../ui/skeleton'
 
 const LeftArrow = () => {
   const { scrollPrev } = useContext(VisibilityContext);
@@ -40,6 +41,49 @@ const { isLoading, data } = useQuery({
 });
 
 
+if (isLoading) {
+  return (
+      <div className='flex flex-wrap gap-4 my-10 px-6 md:px-20'>
+          <div className='border animate-pulse w-56 overflow-hidden rounded-2xl'>
+              <Skeleton className=" h-60 w-56 " />
+              <Skeleton className="ml-4 h-4 w-32 mt-4" />
+              <Skeleton className="ml-4 h-4 w-24 mt-2" />
+              <div className="flex items-center px-4 mt-6 justify-between">
+                  <Skeleton className=" h-4 w-20" />
+                  <Skeleton className=" h-6 w-16" />
+              </div>
+          </div>
+          <div className='border animate-pulse w-56 overflow-hidden rounded-2xl'>
+              <Skeleton className=" h-60 w-56 " />
+              <Skeleton className="ml-4 h-4 w-32 mt-4" />
+              <Skeleton className="ml-4 h-4 w-24 mt-2" />
+              <div className="flex items-center px-4 mt-6 justify-between">
+                  <Skeleton className=" h-4 w-20" />
+                  <Skeleton className=" h-6 w-16" />
+              </div>
+          </div>
+          <div className='border animate-pulse w-56 overflow-hidden rounded-2xl'>
+              <Skeleton className=" h-60 w-56 " />
+              <Skeleton className="ml-4 h-4 w-32 mt-4" />
+              <Skeleton className="ml-4 h-4 w-24 mt-2" />
+              <div className="flex items-center px-4 mt-6 justify-between">
+                  <Skeleton className=" h-4 w-20" />
+                  <Skeleton className=" h-6 w-16" />
+              </div>
+          </div>
+          <div className='border animate-pulse w-56 overflow-hidden rounded-2xl'>
+              <Skeleton className=" h-60 w-56 " />
+              <Skeleton className="ml-4 h-4 w-32 mt-4" />
+              <Skeleton className="ml-4 h-4 w-24 mt-2" />
+              <div className="flex items-center px-4 mt-6 justify-between">
+                  <Skeleton className=" h-4 w-20" />
+                  <Skeleton className=" h-6 w-16" />
+              </div>
+          </div>
+      </div>
+  )
+}
+
   return (
     <div className='px-4 md:px-40 my-12 relative'>
         <div className='flex justify-between  items-center py-10'>
@@ -57,9 +101,9 @@ const { isLoading, data } = useQuery({
                 <Image placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`} width={100} height={100} quality={10} src={i.image1} className=' w-56 h-60' alt="images"/>
                 <div className='p-2'>
                     <Link href={`/location/${i.id}`}><h1 className='text-lg font-bold'>{i.locationCaption}</h1></Link>
-                    <p className='flex gap-1 text-xs items-center'><MdLocationOn className='text-blue-800 text-base' />{i.locationAt}</p>
+                    <p className='flex gap-1 text-base items-center'><MdLocationOn className='text-blue-800 text-base' />{i.locationAt}</p>
                     <div className='flex justify-between mt-6'>
-                        <p className='font-bold'>${i.price}/<span className='text-xs font-light'>per night</span></p>
+                        <p className='font-bold'>${i.price}/<span className='text-sm font-light'>per night</span></p>
                         <p className='flex bg-[rgb(254,247,221)] text-xs font-medium rounded-full p-2 items-center'><AiFillStar className='text-sm text-yellow-400'/>4.9</p>
                     </div>
                 </div>
