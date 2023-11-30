@@ -11,7 +11,7 @@ const HotelResult = () => {
   const searchParams = useSearchParams()
   const location = searchParams.get('location')
   const {} = useQuery({    
-    queryKey: [`HotelSearchId${location}`],
+    queryKey: [`HotelQueryId${location}`],
     queryFn: () =>
       axios
       .get(`/api/searchFeed/hotel/${location}`)

@@ -2,7 +2,7 @@ import CarResult from '@/components/SearchResults/CarResult/CarResult'
 import Location from '@/components/Location'
 import React from 'react'
 import Image from 'next/image'
-import HotelQuery from "@/public/hotel-query.jpg"
+import HotelQuery from "@/public/carRent.jpg"
 import { headers } from 'next/headers'
 import getQueryClient from '@/app/getQueryClient'
 import axios from 'axios'
@@ -15,7 +15,7 @@ export default async function Page () {
   const queryClient = getQueryClient()
 
   await queryClient.prefetchQuery({
-    queryKey: [`HotelSearchId${searchParams}`],
+    queryKey: [`CarQuerySearchId${searchParams}`],
     queryFn: () =>
           axios
             .get(`/api/searchFeed/car/${searchParams}`)

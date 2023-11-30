@@ -9,9 +9,9 @@ type Props = {
 
 export const GET = async (req:Request, {params : {id}}: Props) => {
     try {
-        const cars = await prisma.cars.findMany({
+        const locations = await prisma.locations.findMany({
             where: {
-              location: id,
+              locationAt: id,
             },
             // include: {
             //     personWhoCreatedPost : true,
@@ -22,7 +22,7 @@ export const GET = async (req:Request, {params : {id}}: Props) => {
             //     }
             // }
         });
-        return new Response(JSON.stringify(cars), {status:200})
+        return new Response(JSON.stringify(locations), {status:200})
     } catch(error:any) {
         return new Response(error, {status: 500})
     }

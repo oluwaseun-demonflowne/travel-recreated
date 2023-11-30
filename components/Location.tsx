@@ -71,16 +71,31 @@ const Location = () => {
   const goToLocation = () => {
     setLoading(true)
     if(stay){
-        // Router.push(`/location/search?location=${searchLocation}`)   
+      if(locationCity.length < 4) {
+        toast.error("Please enter a valid city")
+        setLoading(false)
+      } else {
+        Router.push(`/locationQuery/search?location=${locationCity}`)   
+      }
     }
-    if(flight){
-        Router.push('/flight')   
-    }
+    // if(flight){
+    //     Router.push('/flight')   
+    // }
     if(cars){
-        Router.push('/car/q')   
+      if(pickupLocation.length < 4) {
+        toast.error("Please enter a valid city")
+        setLoading(false)
+      } else {
+        Router.push(`/carQuery/search?pickupLocation=${pickupLocation}`)   
+      }
     }
     if(hotel){
-        Router.push(`/hotelQuery/search?location=${hotelCity}`)   
+        if(hotelCity.length < 4) {
+          toast.error("Please enter a valid city")
+          setLoading(false)
+        } else {
+          Router.push(`/hotelQuery/search?location=${hotelCity}`)   
+        }
     }
   }
 
@@ -102,7 +117,7 @@ const Location = () => {
               {cars && <Cars setPickUpLocation={setPickupLocation} setNoOfPassengers={setNoOfPassengers} />}
 
               {hotel && <Hotel date={date} setDate={setDate} hotelCityName={setHotelCity} />}
-            <button onClick={() => {hotelCity.length > 4 ? goToLocation() : toast.error("City name is empty!")}}  className={`pointer ${loading ? 'pointer-events-none opacity-30' : ""} bg-blue-600 mr-5 w-10 h-10 text-lg flex justify-center items-center rounded-full p-2`}><BiSearch className='text-white' /></button>
+            <button onClick={() => goToLocation()}  className={`pointer ${loading ? 'pointer-events-none opacity-30' : ""} bg-blue-600 mr-5 w-10 h-10 text-lg flex justify-center items-center rounded-full p-2`}><BiSearch className='text-white' /></button>
             </div>
         </div>    
     </div>
