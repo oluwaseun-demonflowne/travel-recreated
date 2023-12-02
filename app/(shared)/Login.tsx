@@ -23,7 +23,7 @@ const Login = ({checked,setIsChecked}: Props) => {
         }} className='bg-[rgb(58,94,206)] text-white w-28 text-xs font-medium rounded-full py-2 px-4'>Sign In</button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px] h-[480px] overflow-y-scroll overflow-x-hidden">
-        {login && <div className='flex flex-col gap-6'>
+        {login && <form className='flex flex-col gap-6'>
             <div className='flex flex-col gap-1'>
                 <h1 className='text-xl font-bold'>Login to your Acount</h1>
                 <p className='text-slate-600 text-sm'>Start right now with us</p>
@@ -45,14 +45,14 @@ const Login = ({checked,setIsChecked}: Props) => {
             </div>
             <button className='w-full py-3 text-white font-medium text-sm  bg-[rgb(58,94,206)] rounded-sm'>Sign In</button>
             <div className='flex items-center justify-between'>
-                <span>Dont't have an account?</span>
+                <span>Dont&apos;t have an account?</span>
                 <button onClick={() => {
                     setRegister(true)
                     setLogin(false)
                 }} className='text-xs border py-4 px-5'>Sign up</button>
             </div>
-        </div>}
-        {register && <div className='flex flex-col gap-6'>
+        </form>}
+        {register && <form className='flex flex-col gap-6'>
             <div className='flex flex-col gap-1'>
                 <h1 className='text-xl font-bold'>Create an Acount</h1>
                 <p className='text-slate-600 text-sm'>Start right now with us</p>
@@ -88,7 +88,7 @@ const Login = ({checked,setIsChecked}: Props) => {
                     setRegister(false)
                 }} className='text-xs border py-4 px-5'>Sign In</button>
             </div>
-        </div>}
+        </form>}
       </DialogContent>
     </Dialog>
   )
