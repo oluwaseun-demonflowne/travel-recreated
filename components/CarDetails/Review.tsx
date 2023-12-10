@@ -1,12 +1,11 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import { AiFillStar } from 'react-icons/ai'
 import { LiaEllipsisHSolid } from 'react-icons/lia'
 import { AiOutlineHeart } from 'react-icons/ai'
-import { useParams, useRouter } from 'next/navigation'
+import { useParams } from 'next/navigation'
 import axios from 'axios'
-
-type Props = {}
+import { useQuery } from '@tanstack/react-query'
 
 interface CommentData {
     carId: string;
@@ -28,72 +27,41 @@ interface CommentData {
   }
 
 
-const Review = (props: Props) => {
-    const params = useParams();
-    const uid = params.id;
-    const [comment, setComment] = useState([])
+const Review = () => {
+    const {whoami} = useAuth()
     const [submitting,setSubmitting] = useState(false)
     const [review,setReview] = useState('')  
-
-    const router = useParams()
-    
-
-
-    const { isLoading, error, data, isFetching, refetch } = useQuery({    
-        queryKey: ['Car'],
-        queryFn: () =>
+    const {id} = useParams()
+    const { data } = useQuery({    
+      queryKey: [`CarSearchId${id}`],
+      queryFn: () =>
           axios
-            .get(`/api/category/car/${router.id}`)
+            .get(`/api/category/car/${id}`)
             .then((res) => res.data),
-      });
-    
-      
-      
-      if(data) {
-        console.log(data?.carComment)    
-      }    
-    
-      if(isLoading) {
-        return  (
-            <p>Loading</p>
-        )
-      }
-
-
-    // useEffect(() => {
-    //     setComment(store.getState().getId.carProfile?.carComment)
-    // },[store.getState().getId.carProfile])
-
-//   const router = useRouter()
+    })
   
-  const handleSubmit = async (e:any) => {
+  const handleSubmit = async (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    // if(review.length > 2) {
-    //     try {
-    //         setSubmitting(true)
-    //         const response = await fetch('/api/review/car', {
-    //             method: 'POST',
-    //             body: JSON.stringify({
-    //                 comment: review,
-    //                 userId:session?.user?.id,
-    //                 carId:uid
-    //             })
-    //         })
-    //         console.log(response)
-    //         if(response.ok){
-    //             // router.push('/admin')
-    //             // toast.success("Registration successful")
-    //         }
-    //         if(response.status == 500) {
-    //             console.log("failed")
-    //         }
-    //       } catch (error) {
-    //           console.log(error)
-    //       } finally {
-    //           setSubmitting(false)
-    //           refetch()
-    //       }
-    // }
+    if(review.length > 2) {
+        try {
+            setSubmitting(true)
+            const response = await fetch('/api/review/car', {
+                method: 'POST',
+                body: JSON.stringify({
+                    comment: review,
+                    userId:whoami?.id,
+                    carId:data?.id
+                })
+            })
+            if(response.ok){
+            }
+            if(response.status == 500) {
+                console.log("failed")
+            }
+          } catch (error) {
+              console.log(error)
+          }
+    }
   }
   return (
     <div>
@@ -114,7 +82,10 @@ const Review = (props: Props) => {
                 <p className='text-xs'>Be the first to review <span className='font-semibold'>name of this place</span></p>
                 <form onSubmit={handleSubmit} className='w-80 md:w-96 relative'>
                     <input type='text' onChange={(e) => setReview(e.target.value)} value={review} required className='text-xs outline-none px-4 border rounded-full w-80 md:w-96 h-12' placeholder='Share your thoughts..'/>
-                    <button type='submit' className={`text-white ${submitting ? 'pointer-events-none opacity-50' : ''} absolute rounded-full border right-2 top-1 w-28 font-medium bg-blue-800 h-10 px-2 text-xs`}>Post Now</button> 
+                    {review.length > 2 ? 
+                      <button type='submit' className={`text-white ${submitting ? 'pointer-events-none opacity-50' : ''} absolute rounded-full border right-2 top-1 w-28 font-medium bg-blue-800 h-10 px-2 text-xs`}>Post Now</button> : 
+                      <button type='button' className={`text-white pointer-events-none opacity-30 absolute rounded-full border right-2 top-1 w-28 font-medium bg-blue-800 h-10 px-2 text-xs`}>Post Now</button>
+                    } 
                 </form>
             </div>
         </div>

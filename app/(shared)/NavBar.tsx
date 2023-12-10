@@ -4,14 +4,20 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Icon from "../../public/travel-icon.png"
 import Login from './Login';
+import { User } from '@prisma/client';
+import { signOut } from 'next-auth/react';
+import { IoIosArrowDown } from 'react-icons/io';
 
-export default function NavBar () {
+interface NavbarProps {
+  currentUser?: User | null
+  
+}
+
+export default function NavBar ({currentUser}:NavbarProps) {
   const [isChecked, setIsChecked] = useState(false);
-
   const handleLiClick = () => {
     setIsChecked(!isChecked);
   };
-
   return (
     <>
     <nav className='hidden md:flex items-center justify-around'>
@@ -19,15 +25,27 @@ export default function NavBar () {
           <Image placeholder="blur" quality={50} src={Icon} alt='logo' className='w-[80px]'/>
         </div>
         <ul className='flex gap-8 text-sm font-semibold'>        
-            <Link href='/'><li className='cursor-pointer'>Home</li></Link>
-            <Link href='/faq'><li className='cursor-pointer'>Faq</li></Link>
-            <Link href='/profile'><li className='cursor-pointer'>Profile</li></Link>
-            <Link href='/about'><li className='cursor-pointer'>About</li></Link>
-            <Link href='/contact'><li className='cursor-pointer'>Contact</li></Link>
+            <li className='cursor-pointer'><Link href='/'>Home</Link></li>
+            <li className='cursor-pointer'><Link href='/faq'>Faq</Link></li>
+            <li className='cursor-pointer'><Link href={`/profile/${currentUser?.id}`}>Profile</Link></li>
+            <li className='cursor-pointer'><Link href='/about'>About</Link></li>
+            <li className='cursor-pointer'><Link href='/contact'>Contact</Link></li>
+            <li className='relative admin-route'>
+              <div className='flex cursor-pointer items-center gap-3'>
+              <span className=''>Admin</span><IoIosArrowDown className="text-xl arrow-admin"/>
+              </div>
+              <div className='flex admin-list  flex-col border py-3 px-4 rounded-sm shadow-sm gap-3 top-5 bg-white absolute'>
+                <Link className='hover:text-black text-slate-600 cursor-pointer w-24 h-7' href='/admin/car'>Car</Link>
+                <Link className='hover:text-black text-slate-600 cursor-pointer w-24 h-7' href='/admin/hotel'>Hotel</Link>
+                <Link className='hover:text-black text-slate-600 cursor-pointer w-24 h-7' href='/admin/location'>Location</Link>
+              </div>
+            </li>
         </ul>    
         <div className='flex gap-5 text-base items-center'>
             <p>USD</p>
-            <Login checked={isChecked} setIsChecked={setIsChecked}/>
+            {!currentUser ? <Login checked={isChecked} setIsChecked={setIsChecked}/> : 
+            <button onClick={() => signOut()} className='bg-[rgb(58,94,206)] text-white w-28 text-xs font-medium rounded-full py-2 px-4'>Log out</button>
+            }
         </div> 
     </nav>
     <header className="header md:hidden">
@@ -37,14 +55,27 @@ export default function NavBar () {
         <label className="hamb" htmlFor="side-menu"><span className="hamb-line"></span></label>
         <nav className="shadow-lg nav pl-5 mt-5 flex flex-col">
           <ul className='flex  flex-col gap-8 text-sm font-semibold'>        
-              <Link href='/'><li onClick={handleLiClick} className='ok cursor-pointer'>Home</li></Link>
-              <Link href='/faq'><li onClick={handleLiClick} className='ok cursor-pointer list'>faq</li></Link>
-              <Link href='/profile'><li onClick={handleLiClick} className='ok cursor-pointer'>Profile</li></Link>
-              <Link href='/about'><li onClick={handleLiClick} className='cursor-pointer ok'>About</li></Link>
-              <Link href='/contact'><li onClick={handleLiClick} className='cursor-pointer'>Contact</li></Link>
+              <li onClick={handleLiClick} className='ok cursor-pointer'><Link href='/'>Home</Link></li>
+              <li className='relative admin-route'>
+                <div className='flex cursor-pointer items-center gap-3'>
+                  <span className=''>Admin</span><IoIosArrowDown className="text-xl arrow-admin"/>
+                </div>
+                <div className='flex admin-list  flex-col border py-3 px-4 rounded-sm shadow-sm gap-3 top-5 bg-white absolute'>
+                  <Link onClick={handleLiClick} className='hover:text-black text-slate-600 cursor-pointer w-24 h-7' href='/admin/car'>Car</Link>
+                  <Link onClick={handleLiClick} className='hover:text-black text-slate-600 cursor-pointer w-24 h-7' href='/admin/hotel'>Hotel</Link>
+                  <Link onClick={handleLiClick} className='hover:text-black text-slate-600 cursor-pointer w-24 h-7' href='/admin/location'>Location</Link>
+                </div>
+              </li>
+              <li onClick={handleLiClick} className='ok cursor-pointer'><Link href='/faq'>faq</Link></li>
+              <li onClick={handleLiClick} className='cursor-pointer'><Link href={`/profile/${currentUser?.id}`}>Profile</Link></li>
+              <li onClick={handleLiClick} className='ok cursor-pointer'><Link href='/about'>About</Link></li>
+              <li onClick={handleLiClick} className='ok cursor-pointer'><Link href='/contact'>Contact</Link></li>
+              
           </ul>    
           <div className='flex mb-5 gap-5 mt-7 text-base items-center'>
-            <Login checked={isChecked} setIsChecked={setIsChecked}/>
+            {!currentUser ? <Login checked={isChecked} setIsChecked={setIsChecked}/> : 
+            <button onClick={() => signOut()} className='bg-[rgb(58,94,206)] text-white w-28 text-xs font-medium rounded-full py-2 px-4'>Log out</button>
+            }
           </div> 
         </nav>
     </header>

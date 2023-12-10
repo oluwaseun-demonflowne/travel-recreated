@@ -7,10 +7,12 @@ import { useParams } from 'next/navigation'
 import axios from 'axios'
 import { useQuery } from '@tanstack/react-query'
 import { HotelCommentData } from '@/index'
+import { useAuth } from '@/app/auth-provider'
 
 const Review = () => {
     const {id} = useParams();
-    // const [submitting,setSubmitting] = useState(false)
+    const {whoami} = useAuth()
+    const [submitting,setSubmitting] = useState(false)
     const [review,setReview] = useState('')  
 
     const { isLoading,data} = useQuery({    
@@ -28,35 +30,31 @@ const Review = () => {
     }
   
   
-//   const handleSubmit = async (e) => {
-//     e.preventDefault()
-//     if(review.length > 2) {
-//         try {
-//             setSubmitting(true)
-//             const response = await fetch('/api/review/hotel', {
-//                 method: 'POST',
-//                 body: JSON.stringify({
-//                     comment: review,
-//                     userId:session?.user?.id,
-//                     hotelId:uid
-//                 })
-//             })
-//             console.log(response)
-//             if(response.ok){
-//                 // router.push('/admin')
-//                 // toast.success("Registration successful")
-//             }
-//             if(response.status == 500) {
-//                 console.log("failed")
-//             }
-//           } catch (error) {
-//               console.log(error)
-//           } finally {
-//               setSubmitting(false)
-//               refetch()
-//           }
-//     }
-//   }
+    const handleSubmit = async (e:React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        if(review.length > 2) {
+            try {
+                setSubmitting(true)
+                const response = await fetch('/api/review/hotel', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        comment: review,
+                        userId:whoami?.id,
+                        hotelId:data?.id
+                    })
+                })
+                if(response.ok){
+                    // router.push('/admin')
+                    // toast.success("Registration successful")
+                }
+                if(response.status == 500) {
+                    console.log("failed")
+                }
+            } catch (error) {
+                console.log(error)
+            } 
+        }
+    }
   
     return (
         <div>
@@ -75,9 +73,12 @@ const Review = () => {
                 <div className='flex flex-col   gap-2'>
                     <h1 className='font-black'>Add a review</h1>
                     <p className='text-sm'>Be the first to review <span className='font-semibold'>name of this place</span></p>
-                    <form  className='w-80 md:w-96 relative'>
+                    <form onSubmit={handleSubmit} className='w-80 md:w-96 relative'>
                         <input type='text' onChange={(e) => setReview(e.target.value)} value={review} required className='text-sm outline-none px-4 border rounded-full w-80 md:w-96 h-12' placeholder='Share your thoughts..'/>
-                        <button type='submit' className={`text-white absolute rounded-full border right-2 top-1 w-28 font-medium bg-blue-800 h-10 px-2 text-sm`}>Post Now</button> 
+                        {review.length > 2 ? 
+                            <button type='submit' className={`text-white ${submitting ? 'pointer-events-none opacity-50' : ''} absolute rounded-full border right-2 top-1 w-28 font-medium bg-blue-800 h-10 px-2 text-xs`}>Post Now</button> : 
+                            <button type='button' className={`text-white pointer-events-none opacity-30 absolute rounded-full border right-2 top-1 w-28 font-medium bg-blue-800 h-10 px-2 text-xs`}>Post Now</button>
+                        } 
                     </form>
                 </div>
             </div>

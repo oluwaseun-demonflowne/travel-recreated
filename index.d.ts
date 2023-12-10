@@ -160,24 +160,28 @@ export interface Locations {
 export interface User {
   id: string;
   firstName: string;
-  lastName: string;
-  phoneNumber: string;
-  livesIn: string;
-  language: string;
+  lastName?: string | null;
+  phoneNumber?: number | null;
+  livesIn?: string | null;
+  language?: string | null;
   password: string;
   email: string;
-  bio: string;
-  coverPhoto: string;
-  profilePhoto: string;
-  Cars: Cars[];
-  Hotels: Hotels[];
-  Like: Like[];
-  Locations: Locations[];
-  carComment: carComment[];
-  flightComment: flightComment[];
-  hotelComment: hotelComment[];
-  locationComment: locationComment[];
+  emailVerified?: Date | null;
+  bio?: string | null;
+  coverPhoto?: string | null;
+  profilePhoto?: string | null;
+  accounts: Account[];
+  sessions: Session[];
+  hotelComment: HotelComment[];
+  carComment: CarComment[];
+  locationComment: LocationComment[];
+  flightComment: FlightComment[];
+  likes: Like[];
+  hotelPost: Hotel[];
+  carPost: Car[];
+  locationPost: Location[];
 }
+
 
 export interface carComment {
   id: string;

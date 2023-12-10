@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   title: 'Travel with us. Explore',
   description: 'a website to book hotel,car',
 }
+import { Session } from "next-auth"
+import getCurrentUser from './actions/getCurrentUser'
 
 
 const inter = Oxanium({ 
@@ -19,22 +21,25 @@ const inter = Oxanium({
   variable: '--font-oxanium'
 })
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  session
 }: {
-  children: React.ReactNode
+  children: React.ReactNode,
+  session:Session
 }) {
+  const currentUser = await getCurrentUser()
   return (
     <html lang="en">
       <body className={inter.variable}>
-        <Providers>
-          <Suspense  fallback={<Loading />}>
-              <NavBar />
-                <Toaster />
-                  {children}
-              <Newsletter />
-              <Footer />
-          </Suspense>  
+        <Providers session={session}>
+            <Suspense  fallback={<Loading />}>
+                <NavBar currentUser={currentUser}/>
+                  <Toaster />
+                    {children}
+                <Newsletter />
+                <Footer />
+            </Suspense>  
         </Providers>
       </body>
     </html>

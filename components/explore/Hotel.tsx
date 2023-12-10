@@ -3,26 +3,18 @@ import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import {AiFillStar, AiOutlineHeart} from 'react-icons/ai'
 import {MdLocationOn} from 'react-icons/md'
 
-type Props = {}
-
-const Hotel = (props: Props) => {
-  
-    const { isLoading, error, data, isFetching } = useQuery({    
-        queryKey: ['Hotel'],
-        queryFn: () =>
-          axios
-            .get('/api/category/hotel')
-            .then((res) => res.data),
-    });
-
-
-
-
-
+const Hotel = () => {  
+  const { data } = useQuery({    
+      queryKey: ['Hotel'],
+      queryFn: () =>
+        axios
+          .get('/api/category/hotel')
+          .then((res) => res.data),
+  });
   return (
     <div className='flex flex-wrap gap-4 justify-center'>
         {data?.map((i:any) => (

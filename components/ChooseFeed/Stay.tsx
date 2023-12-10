@@ -1,12 +1,9 @@
 "use client"
 import React, { Dispatch, SetStateAction } from 'react'
-import { BiSearch } from 'react-icons/bi'
 import { CiLocationOn } from 'react-icons/ci'
 import { FaRegCalendarAlt } from 'react-icons/fa'
 import { GoPerson } from 'react-icons/go'
 import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover'
-import { Button } from '../ui/button'
-import { cn } from '@/lib/utils'
 import { format } from "date-fns"
 import { Calendar } from '../ui/calendar'
 

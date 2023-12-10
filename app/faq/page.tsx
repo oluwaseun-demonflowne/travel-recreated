@@ -1,4 +1,3 @@
-// import ExploreDestination from '@components/locationDetails/ExploreDestination'
 import Question from '@/components/Destination/Question'
 import Image from 'next/image'
 import React from 'react'
@@ -13,7 +12,6 @@ export default async function Page ()  {
             <p className='text-xl text-white font-bold'>Frequently asked questions</p>
         </div>
         <Question />
-        {/* <ExploreDestination /> */}
     </section>
   )
 }

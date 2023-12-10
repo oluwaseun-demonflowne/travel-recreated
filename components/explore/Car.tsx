@@ -1,8 +1,6 @@
 import React from 'react'
 
-type Props = {}
-
-const Car = (props: Props) => {
+const Car = () => {
   return (
     <div>Car</div>
   )

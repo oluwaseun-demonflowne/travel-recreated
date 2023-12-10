@@ -14,14 +14,14 @@ export const GET = async (req:Request, {params : {id}}: Props) => {
             where: {
               id: id,
             },
-            // include: {
-            //     personWhoCreatedPost : true,
-            //     locationComment: {
-            //         include: {
-            //           personWhoCommented: true
-            //         }
-            //     }
-            // }
+            include: {
+                personWhoCreatedPost : true,
+                locationComment: {
+                    include: {
+                      personWhoCommented: true
+                    }
+                }
+            }
         });
         console.log(locations)
         return new Response(JSON.stringify(locations), {status:200})

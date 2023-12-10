@@ -1,3 +1,6 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -7,204 +10,247 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Cars {
-  id           String       @id
-  category     String
-  creator      String
-  carName      String
-  location     String
-  price        Int
-  image1       String
-  image2       String
-  image3       String
-  passengerNo  Int
-  luggageNo    Int
-  trans        String
-  overview     String
-  duration     String
-  meetGreet    String
-  shuttle      String
-  size         String
-  wifi         String
-  fmRadio      String
-  airBag       String
-  powerWindows String
-  sensor       String
-  speed        String
-  steering     String
-  safety       String
-  User         User         @relation(fields: [creator], references: [id])
-  Like         Like[]
-  carComment   carComment[]
+model Account {
+  id                 String  @id @default(cuid())
+  userId             String
+  type               String
+  provider           String
+  providerAccountId  String
+  refresh_token      String?  @db.Text
+  access_token       String?  @db.Text
+  expires_at         Int?
+  token_type         String?
+  scope              String?
+  id_token           String?  @db.Text
+  session_state      String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
 }
 
-model Flights {
-  id                      String          @id
-  category                String
-  creator                 String
-  image1                  String
-  image2                  String
-  image3                  String
-  startingLocationInitial String
-  startingLocation        String
-  endingLocationInitial   String
-  endingLocation          String
-  price                   Int
-  departureTime           Int
-  arrivalTime             Int
-  duration                Int
-  flightClass             String
-  stop                    String
-  airline                 String
-  Like                    Like[]
-  flightComment           flightComment[]
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
-model Hotels {
-  id                    String         @id
-  category              String
-  creator               String
-  image1                String
-  image2                String
-  image3                String
-  hotelName             String
-  shortHotelDescription String
-  location              String
-  price                 Int
-  guestNo               String
-  roomNo                String
-  privateBathNo         String
-  cancelFree            String
-  reserveNow            String
-  specialOffer          String
-  breakfast             String
-  romantic              String
-  airport               String
-  overview              String
-  wifi                  String
-  star                  String
-  hotelType             String
-  dedicated             String
-  checkIn               String
-  freeCancel            String
-  wifiIncluded          String
-  bathroom              String
-  smoking               String
-  breakfastIncluded     String
-  gym                   String
-  atm                   String
-  pool                  String
-  city                  String
-  User                  User           @relation(fields: [creator], references: [id])
-  Like                  Like[]
-  hotelComment          hotelComment[]
-}
-
-model Like {
-  id         String    @id
-  userId     String
-  carId      String
-  flightId   String
-  hotelId    String
-  locationId String
-  Cars       Cars      @relation(fields: [carId], references: [id])
-  Flights    Flights   @relation(fields: [flightId], references: [id])
-  Hotels     Hotels    @relation(fields: [hotelId], references: [id])
-  Locations  Locations @relation(fields: [locationId], references: [id])
-  User       User      @relation(fields: [userId], references: [id])
-}
-
-model Locations {
-  id              String            @id
-  category        String
-  creator         String
-  image1          String
-  image2          String
-  image3          String
-  locationCaption String
-  locationAt      String
-  price           Int
-  language        String
-  freeCancel      String
-  day             String
-  group           String
-  tour            String
-  cancelFreely    String
-  activityType    String
-  title1          String
-  included1       String
-  title2          String
-  included2       String
-  title3          String
-  included3       String
-  overview        String
-  wifi            String
-  cleanBathroom   String
-  smoking         String
-  breakfast       String
-  gym             String
-  atm             String
-  swimming        String
-  city            String
-  Like            Like[]
-  User            User              @relation(fields: [creator], references: [id])
-  locationComment locationComment[]
-}
 
 model User {
-  id              String            @id
-  firstName       String
-  lastName        String
-  phoneNumber     String
-  livesIn         String
-  language        String
-  password        String
-  email           String            @unique
-  bio             String
-  coverPhoto      String
-  profilePhoto    String
-  Cars            Cars[]
-  Hotels          Hotels[]
-  Like            Like[]
-  Locations       Locations[]
-  carComment      carComment[]
-  flightComment   flightComment[]
-  hotelComment    hotelComment[]
-  locationComment locationComment[]
+  id                String   @default(cuid()) @id
+  firstName         String
+  lastName          String?
+  phoneNumber       String?
+  livesIn           String?
+  language          String?
+  password          String
+  email             String   @unique
+  emailVerified     DateTime?
+  bio               String?
+  coverPhoto        String?
+  profilePhoto      String?
+  accounts          Account[]
+  sessions          Session[]
+  hotelComment      hotelComment[] 
+  carComment        carComment[] 
+  locationComment   locationComment[] 
+  flightComment     flightComment[] 
+  likes             Like[] 
+  hotelPost         Hotels[]
+  carPost           Cars[]
+  locationPost      Locations[]
 }
 
-model carComment {
-  id      String @id
-  comment String
-  carId   String
-  userId  String
-  Cars    Cars   @relation(fields: [carId], references: [id])
-  User    User   @relation(fields: [userId], references: [id])
-}
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
 
-model flightComment {
-  id       String  @id
-  comment  String
-  flightId String
-  userId   String
-  Flights  Flights @relation(fields: [flightId], references: [id])
-  User     User    @relation(fields: [userId], references: [id])
+  @@unique([identifier, token])
 }
 
 model hotelComment {
-  id      String @id
-  comment String
-  hotelId String
-  userId  String
-  Hotels  Hotels @relation(fields: [hotelId], references: [id])
-  User    User   @relation(fields: [userId], references: [id])
+  id                           String     @default(cuid()) @id
+  hotelPostCommentedOnId       Hotels     @relation(fields: [hotelId], references: [id])
+  personWhoCommented           User       @relation(fields: [userId], references: [id])
+  comment                      String
+  hotelId                      String
+  userId                       String
+}
+
+model carComment {
+  id                           String     @default(cuid()) @id
+  carPostCommentedOnId         Cars       @relation(fields: [carId], references: [id])
+  personWhoCommented           User       @relation(fields: [userId], references: [id])
+  comment                      String
+  carId                      String
+  userId                       String
 }
 
 model locationComment {
-  id         String    @id
-  comment    String
-  locationId String
-  userId     String
-  Locations  Locations @relation(fields: [locationId], references: [id])
-  User       User      @relation(fields: [userId], references: [id])
+  id                           String     @default(cuid()) @id
+  locationPostCommentedOnId    Locations  @relation(fields: [locationId], references: [id])   
+  personWhoCommented           User       @relation(fields: [userId], references: [id])
+  comment                      String
+  locationId                      String
+  userId                       String
+}
+
+model flightComment {
+  id                           String     @default(cuid()) @id
+  flightPostCommentedOnId      Flights    @relation(fields: [flightId], references: [id])   
+  personWhoCommented           User       @relation(fields: [userId], references: [id])
+  comment                      String
+  flightId                      String
+  userId                       String
+}
+
+
+model Like {
+  id                       String     @default(cuid()) @id
+  carPostLikedOnId         Cars       @relation(fields: [carId], references: [id])  
+  flightPostLikedOnId      Flights    @relation(fields: [flightId], references: [id])      
+  hotelPostLikedOnId       Hotels     @relation(fields: [hotelId], references: [id])    
+  locationPostLikedOnId    Locations  @relation(fields: [locationId], references: [id])           
+  personWhoLiked           User       @relation(fields: [userId], references: [id])
+  userId                   String
+  carId                    String
+  flightId                 String
+  hotelId                  String
+  locationId               String
+}
+
+
+model Cars {
+    id String @default(cuid()) @id
+    category String
+    personWhoCreatedPost           User       @relation(fields: [creator], references: [id])
+    creator String
+    carName String
+    location String
+    price Int
+    image1 String
+    image2 String
+    image3 String
+    passengerNo Int
+    luggageNo Int
+    trans String
+    overview String
+    duration String
+    meetGreet String
+    shuttle String
+    size String
+    wifi String
+    fmRadio String
+    airBag String
+    powerWindows String
+    sensor String
+    speed String
+    steering String
+    safety String
+    carComment        carComment[] 
+    likes      Like[] 
+}
+
+
+
+model Flights {
+  id String @default(cuid()) @id
+  category String
+  creator String
+  image1 String
+  image2 String
+  image3 String
+  startingLocationInitial String
+  startingLocation String
+  endingLocationInitial String
+  endingLocation String
+  price Int
+  departureTime Int
+  arrivalTime Int
+  duration Int
+  flightClass String
+  stop String
+  airline String
+  flightComment        flightComment[] 
+  likes      Like[] 
+}
+
+model Hotels{
+  id String @default(cuid()) @id
+  category String
+  personWhoCreatedPost           User       @relation(fields: [creator], references: [id])
+  creator String
+  image1 String
+  image2 String
+  image3 String
+  hotelName String
+  shortHotelDescription String
+  location String
+  price Int
+  guestNo String
+  roomNo String
+  privateBathNo String
+  cancelFree String
+  reserveNow String
+  specialOffer String
+  breakfast String
+  romantic String
+  airport String
+  overview String
+  wifi String
+  star String
+  hotelType String
+  dedicated String
+  checkIn String
+  freeCancel String
+  wifiIncluded String
+  bathroom String
+  smoking String
+  breakfastIncluded String
+  gym String
+  atm String
+  pool String
+  city String
+  hotelComment        hotelComment[] 
+  likes      Like[] 
+}
+
+model Locations{
+  id String @default(cuid()) @id
+  category String
+  creator String
+  personWhoCreatedPost           User       @relation(fields: [creator], references: [id])
+  image1 String
+  image2 String
+  image3 String
+  locationCaption String
+  locationAt String
+  price Int
+  language String
+  freeCancel String
+  day String
+  group String
+  tour String
+  cancelFreely String
+  activityType String
+  title1 String
+  included1 String
+  title2 String
+  included2 String
+  title3 String
+  included3 String
+  overview String
+  wifi String
+  cleanBathroom String
+  smoking String
+  breakfast String
+  gym String
+  atm String
+  swimming String
+  city String
+  locationComment        locationComment[]
+  likes      Like[] 
 }

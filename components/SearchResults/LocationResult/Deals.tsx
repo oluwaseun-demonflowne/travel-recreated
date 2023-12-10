@@ -14,10 +14,7 @@ const Deals = () => {
       console.log(e.target.value)
     }
   }
-
-
-
-
+  
   return (
     <div>
       <div className='text-xs font-medium flex p-2 flex-col gap-2'>

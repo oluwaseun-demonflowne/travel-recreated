@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction } from 'react'
-import { BsAirplane, BsCalendar3 } from 'react-icons/bs'
+import { BsAirplane } from 'react-icons/bs'
 import { CiLocationOn } from 'react-icons/ci'
 import { FaRegCalendarAlt } from 'react-icons/fa'
 
