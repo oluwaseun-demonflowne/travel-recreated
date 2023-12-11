@@ -22,7 +22,7 @@ const Stay = ({
   setStartDate,
   setEndDate,
   startDate,
-  endDate}: Props) => {
+  endDate}: Props) => {  
   return (
     <div className='flex gap-1 items-center'>
       <div className='flex md:flex-row flex-col items-center gap-4 md:gap-2'>

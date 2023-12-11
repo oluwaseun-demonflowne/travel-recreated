@@ -179,7 +179,6 @@ const Hotel = () => {
 
  const {register, handleSubmit, formState:{errors} } = useForm<FormData>({resolver: zodResolver(schema)})
  const submitHotelData = async (data:FormData) => {
-    console.log(data)
     try {
       setSubmitting(true)
       const response = await fetch('/api/category/hotel', {
@@ -583,7 +582,7 @@ const Hotel = () => {
                             await startUpload([file]);
                           }}
                         />
-                        {!uploadingImages && <label className={`text-base${linkArray.length > 2 ? "hidden" : ""} cursor-pointer font-semibold rounded-md  justify-center px-3 py-2 border border-[#73adff] text-[#73adff] flex items-center gap-1`} htmlFor='upload'>
+                        {!uploadingImages && <label className={`text-base ${linkArray.length > 2 ? "hidden" : ""} cursor-pointer font-semibold rounded-md  justify-center px-3 py-2 border border-[#73adff] text-[#73adff] flex items-center gap-1`} htmlFor='upload'>
                           <AiOutlineUpload className='text-xl' /> Upload Hotel Images
                         </label>}
                         {uploadingImages && <label className='text-xs pointer-events-none opacity-10 cursor-pointer font-semibold rounded-md  justify-center px-3 py-2 border border-[#73adff] text-[#73adff] flex items-center gap-1' htmlFor='upload'>

@@ -66,9 +66,10 @@ export interface Flights {
   flightComment: flightComment[];
 }
 
-export interface Hotels {
+interface Hotels {
   id: string;
   category: string;
+  personWhoCreatedPost: User;
   creator: string;
   image1: string;
   image2: string;
@@ -101,9 +102,8 @@ export interface Hotels {
   atm: string;
   pool: string;
   city: string;
-  User: User;
-  Like: Like[];
-  hotelComment: hotelComment[];
+  hotelComment: HotelComment[];
+  likes: Like[];
 }
 
 export interface Like {

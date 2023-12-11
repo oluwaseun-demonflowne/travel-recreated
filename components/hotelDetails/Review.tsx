@@ -7,15 +7,16 @@ import { useParams } from 'next/navigation'
 import axios from 'axios'
 import { useQuery } from '@tanstack/react-query'
 import { HotelCommentData } from '@/index'
-import { useAuth } from '@/app/auth-provider'
+import { useSession } from 'next-auth/react'
+import toast from 'react-hot-toast'
 
 const Review = () => {
+    const { data: session } = useSession()
     const {id} = useParams();
-    const {whoami} = useAuth()
     const [submitting,setSubmitting] = useState(false)
     const [review,setReview] = useState('')  
 
-    const { isLoading,data} = useQuery({    
+    const { isLoading,data,refetch} = useQuery({    
         queryKey: [`HotelSearchId${id}`],
         queryFn: () =>
           axios
@@ -39,21 +40,24 @@ const Review = () => {
                     method: 'POST',
                     body: JSON.stringify({
                         comment: review,
-                        userId:whoami?.id,
+                        userId:session?.user?.id,
                         hotelId:data?.id
                     })
                 })
                 if(response.ok){
-                    // router.push('/admin')
-                    // toast.success("Registration successful")
+                    toast.success("Comment successful")
+                    refetch()
                 }
                 if(response.status == 500) {
-                    console.log("failed")
+                    toast.error("Failed to make a comment")
                 }
+                setSubmitting(false)
             } catch (error) {
-                console.log(error)
+                toast.error("Failed to make a comment")
+                setSubmitting(false)
             } 
         }
+        setReview('')
     }
   
     return (
@@ -75,10 +79,12 @@ const Review = () => {
                     <p className='text-sm'>Be the first to review <span className='font-semibold'>name of this place</span></p>
                     <form onSubmit={handleSubmit} className='w-80 md:w-96 relative'>
                         <input type='text' onChange={(e) => setReview(e.target.value)} value={review} required className='text-sm outline-none px-4 border rounded-full w-80 md:w-96 h-12' placeholder='Share your thoughts..'/>
-                        {review.length > 2 ? 
-                            <button type='submit' className={`text-white ${submitting ? 'pointer-events-none opacity-50' : ''} absolute rounded-full border right-2 top-1 w-28 font-medium bg-blue-800 h-10 px-2 text-xs`}>Post Now</button> : 
+                        {review.length > 2  && session?.user?.id ? 
+                            <button type='submit' className={`text-white ${submitting ? 'pointer-events-none hidden opacity-50' : ''} absolute rounded-full border right-2 top-1 w-28 font-medium bg-blue-800 h-10 px-2 text-xs`}>Post Now</button> : 
                             <button type='button' className={`text-white pointer-events-none opacity-30 absolute rounded-full border right-2 top-1 w-28 font-medium bg-blue-800 h-10 px-2 text-xs`}>Post Now</button>
                         } 
+                        {submitting && <button type='button' className={`text-white pointer-events-none opacity-30 absolute rounded-full border right-2 top-1 w-28 font-medium bg-blue-800 h-10 px-2 text-xs`}>Submitting</button>
+                        }
                     </form>
                 </div>
             </div>
@@ -90,14 +96,14 @@ const Review = () => {
                     <div className='flex w-[90%] flex-col gap-1'>
                         <div className='flex justify-between items-center'>
                             <div className='flex items-center gap-1'>
-                                <AiFillStar className='text-xs text-yellow-400' />
-                                <span className='text-xs font-black'>4.8</span>
-                                <p className='text-xs text-slate-500'>1 day ago</p>
+                                <AiFillStar className='text-base text-yellow-400' />
+                                <span className='text-base font-black'>4.8</span>
+                                <p className='text-sm text-slate-500'>1 day ago</p>
                             </div>
                             <LiaEllipsisHSolid />
                         </div>
                         <p className='text-xs font-black'></p>
-                        <p className='text-xs text-slate-600'>{i.comment}</p>
+                        <p className='text-sm text-slate-600'>{i.comment}</p>
                         <div className='flex items-center gap-1'>
                             <AiOutlineHeart className='text-xs' />
                             <p className='text-xs font-medium'>32</p>

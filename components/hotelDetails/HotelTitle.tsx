@@ -6,10 +6,12 @@ import { CiHeart } from 'react-icons/ci'
 import { GoPerson } from 'react-icons/go'
 import { LiaEllipsisHSolid, LiaTimesSolid } from 'react-icons/lia'
 import { LuUpload } from 'react-icons/lu'
-import axios from 'axios'
+import axios, { AxiosResponse } from 'axios'
 import { useQuery } from '@tanstack/react-query'
 import { useParams } from 'next/navigation'
 import { Skeleton } from '../ui/skeleton'
+import { Hotels } from '@/index'
+import Link from 'next/link'
 
 
 
@@ -20,7 +22,7 @@ const LocationTitle = () => {
     queryFn: () =>
       axios
         .get(`/api/category/hotel/${id}`)
-        .then((res) => res.data),
+        .then((res:AxiosResponse<Hotels>) => res.data),
   });
 
   if(isLoading) {
@@ -56,7 +58,7 @@ const LocationTitle = () => {
                 <p className='text-lg font-black'>{data?.shortHotelDescription}</p>
                 <div className='flex flex-wrap items-center text-slate-600 text-base gap-2'>
                     <p>Hosted By</p>
-                    <p className='font-black'>{data?.personWhoCreatedPost?.firstName}{' '}{data?.personWhoCreatedPost?.lastName}</p>
+                    <Link href={`/profile/${data?.personWhoCreatedPost?.id}`}><p className='font-black'>{data?.personWhoCreatedPost?.firstName}{' '}{data?.personWhoCreatedPost?.lastName}</p></Link>
                     <p className='flex items-center gap-1'><GoPerson />{data?.guestNo}{' '}guests</p>
                     <p className='flex items-center gap-1'><BsFlag />{data?.roomNo}{' '}bedroom</p>
                     <p className='flex items-center gap-1'><BsFlag />{data?.privateBathNo}{' '}private bath</p>

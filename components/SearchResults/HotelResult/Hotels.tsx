@@ -2,7 +2,7 @@
 import React from 'react'
 import { BiSort } from 'react-icons/bi'
 import { AiFillStar, AiOutlineWifi } from 'react-icons/ai';
-import { MdFastfood, MdLocationOn } from 'react-icons/md';
+import { MdFastfood } from 'react-icons/md';
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 import { useSearchParams } from 'next/navigation';
@@ -23,7 +23,6 @@ const Hotels = () => {
       .get(`/api/searchFeed/hotel/${location}`)
         .then((res) => res.data),
   });
-
 
   if(isLoading) {
     return (

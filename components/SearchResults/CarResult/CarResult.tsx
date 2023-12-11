@@ -13,13 +13,21 @@ const HotelResult = () => {
 
   const searchParams = useSearchParams()
   const location = searchParams.get('location')
-  const {} = useQuery({    
+  const {data} = useQuery({    
     queryKey: [`HotelSearchId${location}`],
     queryFn: () =>
       axios
       .get(`/api/searchFeed/car/${location}`)
         .then((res) => res.data),
   });  
+
+  if (data?.length === 0) {
+    return (
+      <div className='text-lg font-medium w-full text-center p-4'>
+        <p className='mb-10'>No Data matched this search</p>
+      </div>
+    )
+  }
 
   return (
         <div className='flex md:flex-row flex-col justify-center gap-5'>

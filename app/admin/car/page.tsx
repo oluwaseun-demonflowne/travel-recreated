@@ -388,10 +388,10 @@ const Car = () => {
                           }}
                         />
                         {!uploadingImages && <label className={`text-base${linkArray.length > 2 ? "hidden" : ""} cursor-pointer font-semibold rounded-md  justify-center px-3 py-2 border border-[#73adff] text-[#73adff] flex items-center gap-1`} htmlFor='upload'>
-                          <AiOutlineUpload className='text-xl' /> Upload Hotel Images
+                          <AiOutlineUpload className='text-xl' /> Upload Car Images
                         </label>}
                         {uploadingImages && <label className='text-xs pointer-events-none opacity-10 cursor-pointer font-semibold rounded-md  justify-center px-3 py-2 border border-[#73adff] text-[#73adff] flex items-center gap-1' htmlFor='upload'>
-                          <AiOutlineUpload /> Uploading Hotel Images...
+                          <AiOutlineUpload /> Uploading Car Images...
                         </label>}    
                 {session?.user?.id && linkArray.length === 3 && <button className={`${submitting ? 'opacity-50 pointer-events-none' : ''}  rounded-full py-2 px-4 text-xs text-white bg-blue-600`}>Add Car</button>}
                     <p className='text-xs text-slate-400'>Once submitted , detailes cannot be updated, please crosscheck</p>

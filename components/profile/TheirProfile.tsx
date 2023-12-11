@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react'
-import { AiFillEdit, AiOutlineInstagram, AiOutlineTwitter } from 'react-icons/ai'
+import { AiOutlineInstagram, AiOutlineTwitter } from 'react-icons/ai'
 import { BiLogoFacebook, BiLogoGmail } from 'react-icons/bi'
 import { CiHeart } from 'react-icons/ci'
 import { LiaEllipsisHSolid } from 'react-icons/lia'
@@ -75,7 +75,7 @@ const TheirProfile = () => {
                     <span className=' w-28 h-28 rounded-full border-4 flex items-center justify-center'><Image placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`} unoptimized={true} width={100} height={100} alt='profile photo' src={data?.profilePhoto ? data.profilePhoto : ""} className='w-24 h-24 rounded-full' /></span>
                     <p className='font-black text-xl'>{data?.firstName}{" "}{data?.lastName}</p>
                     <div className='flex text-xs gap-1'>
-                        {session && <button className='bg-black text-white py-1 px-3 rounded-full'>Message</button>}
+                        {/* {session && <button className='bg-black text-white py-1 px-3 rounded-full'>Message</button>} */}
                         <span className='border p-2 rounded-full'><LuUpload /></span>
                         <span className='border p-2 rounded-full'><CiHeart /></span>
                         <span className='border p-2 rounded-full'><LiaEllipsisHSolid /></span>
@@ -97,7 +97,7 @@ const TheirProfile = () => {
                          {" "}profile</p>
                         <h1 className='text-xl font-black'>{data?.firstName}{" "}{data?.lastName}</h1>
                     </div>
-                    <Link href={`/profile-settings/${data?.id}`}><p className=' border text-sm rounded-full px-2 py-1'>Edit Your Profile</p></Link>
+                    {data?.id === session?.user?.id && <Link href={`/profile-settings/${data?.id}`}><p className=' border text-sm rounded-full px-2 py-1'>Edit Your Profile</p></Link>}
                 </div>
                 <p className='text-sm'>{data?.bio}</p>
                 <div className='my-10 flex gap-2 border-b-2'>

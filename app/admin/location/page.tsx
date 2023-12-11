@@ -140,7 +140,9 @@ const Location = () => {
                 category:'Location',
                 creator:session?.user?.id,
                 locationCaption: data.locationCaption,
-                locationAt: data.locationAt,
+                locationAt:data?.locationAt
+                ? data.locationAt.charAt(0)?.toUpperCase() + data.locationAt.slice(1)
+                : undefined,
                 price:data.price,
                 language:data.language ,
                 freeCancel:data.freeCancel ,
@@ -166,7 +168,6 @@ const Location = () => {
                 city : isCityChecked ? 'Nearby City' : 'false' ,
             })
         })
-        console.log(response)
         if(response.ok){
             router.push('/')
             toast.success("Location successfully added")

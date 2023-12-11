@@ -6,7 +6,7 @@ import { useSearchParams } from 'next/navigation'
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import { BsFilterRight } from 'react-icons/bs'
-import { Dialog, DialogClose, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
+import { Dialog, DialogClose, DialogContent ,DialogTrigger } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
 
 
@@ -28,13 +28,22 @@ const LocationResults = () => {
 
   const searchParams = useSearchParams()
   const location = searchParams.get('location')
-  const {} = useQuery({    
+  const {data} = useQuery({    
     queryKey: [`LocationQueryId${searchParams}`],
     queryFn: () =>
       axios
       .get(`/api/searchFeed/location/${location}`)
         .then((res) => res.data),
   });
+
+  if (data?.length === 0) {
+    return (
+      <div className='text-lg font-medium w-full text-center p-4'>
+        <p className='mb-10'>No Data matched this search</p>
+      </div>
+    )
+  }
+
   return (
     <div className='flex md:flex-row flex-col justify-center gap-5'>
       <Dialog>

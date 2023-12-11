@@ -6,7 +6,8 @@ import { AiOutlineHeart } from 'react-icons/ai'
 import { useParams } from 'next/navigation'
 import axios from 'axios'
 import { useQuery } from '@tanstack/react-query'
-import { useAuth } from '@/app/auth-provider'
+import toast from 'react-hot-toast'
+import { useSession } from 'next-auth/react'
 
 interface CommentData {
     carId: string;
@@ -29,7 +30,7 @@ interface CommentData {
 
 const Review = () => {
     const {id} = useParams()
-    const {whoami} = useAuth()
+    const { data: session } = useSession()
     const [submitting,setSubmitting] = useState(false)
     const [review,setReview] = useState('')  
     const { data } = useQuery({    
@@ -49,20 +50,18 @@ const Review = () => {
                     method: 'POST',
                     body: JSON.stringify({
                         comment: review,
-                        userId:whoami?.id,
+                        userId:session?.user?.id,
                         locationId:data?.id
                     })
                 })
-                console.log(response)
                 if(response.ok){
-                    // router.push('/admin')
-                    // toast.success("Registration successful")
+                    toast.success("Comment successful")
                 }
                 if(response.status == 500) {
-                    console.log("failed")
+                    toast.error("Failed to make a comment")
                 }
             } catch (error) {
-                console.log(error)
+                toast.error("Failed to make a comment")
             } 
       }
     }  
